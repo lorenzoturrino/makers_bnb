@@ -1,9 +1,8 @@
-
-
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require_relative 'server'
 
+require_relative 'model/spaces'
 
 DataMapper.setup(:default,  ENV['DATABASE_URL'] || "postgres://localhost/bnb_#{ENV['RACK_ENV']}")
 if ENV['RACK_ENV'] == 'test'
