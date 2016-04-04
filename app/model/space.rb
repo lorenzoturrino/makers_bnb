@@ -1,4 +1,4 @@
-class Spaces
+class Space
   include DataMapper::Resource
 
   property :id, Serial

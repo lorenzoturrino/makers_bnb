@@ -1,33 +1,32 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Office/Dropbox (Personal)/Development/Makers/makers_bnb/app/app.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/app.rb": [
         1,
         null,
         1,
         1,
         1,
         null,
+        1,
+        null,
+        1,
+        1
+      ],
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/data_mapper_setup.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
         1,
         null,
         1
       ],
-      "/Users/Office/Dropbox (Personal)/Development/Makers/makers_bnb/app/data_mapper_setup.rb": [
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1
-      ],
-      "/Users/Office/Dropbox (Personal)/Development/Makers/makers_bnb/app/server.rb": [
-        null,
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/server.rb": [
         1,
         null,
         1,
@@ -37,8 +36,6 @@
         1,
         1,
         1,
-        null,
-        null,
         null,
         1,
         1,
@@ -48,8 +45,45 @@
         null,
         1,
         null
+      ],
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/model/space.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/controller/spaces.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/spec/features/add_space_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        null,
+        null
       ]
     },
-    "timestamp": 1459775057
+    "timestamp": 1459781415
   }
 }
