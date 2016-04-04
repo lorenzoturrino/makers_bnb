@@ -1,1 +1,2 @@
-Fork me to start this Project. Once done, submit a Pull Request.
+
+[![Build Status](https://travis-ci.org/lorenzoturrino/makers_bnb.svg?branch=master)](https://travis-ci.org/lorenzoturrino/makers_bnb)

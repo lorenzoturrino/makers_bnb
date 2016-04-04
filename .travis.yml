@@ -1,0 +1,15 @@
+language: ruby
+
+services:
+  - postgresql
+
+script:
+  - mkdir -p spec && bundle exec rspec spec
+
+before_install:
+- sed -i '2d' Gemfile
+- sudo apt-get update -qq
+- sudo apt-get install -qq postgresql-server-dev-9.3
+
+rvm:
+ - 2.2.3
