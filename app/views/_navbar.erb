@@ -1,15 +1,15 @@
 <% if current_user %>
    Welcome <%= current_user.name %>
 
-       <!-- <form action='/session' method=post>
+       <form action='/session' method=post>
          <input type='hidden' name='_method' value='delete'>
          <input class="button" type='submit' value="Sign out"/>
-       </form> -->
+       </form>
 
   <%else%>
 
 
-       <!-- <form action='/session/new'>
+       <form action='/session/new'>
          <input class="button" type='submit' value="Login">
        </form>
 
@@ -17,6 +17,6 @@
 
        <form action='/user'>
          <input class="button" type='submit' value="Register">
-       </form> -->
+       </form>
 
 <%end%>

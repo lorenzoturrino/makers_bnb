@@ -11,8 +11,7 @@ feature 'SignUp' do
   end
 
   scenario 'A user can sign up' do
-    expect{signup("Factory", "factory_girl", "factory@girl.com",
-    "1234", "1234")}.to change{User.count}.by(1)
+    expect{named_signup}.to change{User.count}.by(1)
 
     expect(current_path).to eq '/spaces'
     expect(page).to have_content("Welcome Factory")

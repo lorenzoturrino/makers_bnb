@@ -12,3 +12,10 @@ def named_signup
   signup("Factory", "factory_girl", "factory@girl.com",
   "1234", "1234")
 end
+
+def signin(email=nil, password=nil)
+  visit('/session/new')
+  fill_in(:email, with: email)
+  fill_in(:password, with: password)
+  click_button('Sign in')
+end
