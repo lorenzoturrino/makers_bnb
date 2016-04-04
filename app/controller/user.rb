@@ -1,6 +1,7 @@
 class Bnb < Sinatra::Base
 
   get '/' do
+    redirect '/spaces' if User.get(session[:user_id])
     redirect '/user/new'
   end
 
