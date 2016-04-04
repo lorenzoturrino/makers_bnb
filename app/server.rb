@@ -1,6 +1,5 @@
-
 class Bnb < Sinatra::Base
-  
+
   enable :sessions
   register Sinatra::Partial
   register Sinatra::Flash
@@ -8,8 +7,6 @@ class Bnb < Sinatra::Base
   set :sessions_secret, 'super secret'
   set :partial_template_engine, :erb
   enable :partial_underscores
-  
-
 
   helpers do
     def current_user
