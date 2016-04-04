@@ -8,12 +8,11 @@ gem 'sinatra-partial'
 gem 'bcrypt'
 gem 'sinatra-flash'
 gem 'pry'
-
+gem 'rake'
 
 group :test do
   gem 'rspec'
   gem 'cucumber'
-  gem 'rake'
   gem 'coveralls', require: false
   gem 'simplecov'
   gem 'rspec-sinatra'
