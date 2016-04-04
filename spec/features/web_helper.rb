@@ -7,3 +7,8 @@ def signup(name=nil, username=nil, email=nil, password=nil, password_confirm = n
   fill_in(:password_confirm, with: password_confirm)
   click_button("Sign up")
 end
+
+def named_signup
+  signup("Factory", "factory_girl", "factory@girl.com",
+  "1234", "1234")
+end
