@@ -1,0 +1,55 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/Office/Dropbox (Personal)/Development/Makers/makers_bnb/app/app.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1
+      ],
+      "/Users/Office/Dropbox (Personal)/Development/Makers/makers_bnb/app/data_mapper_setup.rb": [
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1
+      ],
+      "/Users/Office/Dropbox (Personal)/Development/Makers/makers_bnb/app/server.rb": [
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1459775057
+  }
+}
