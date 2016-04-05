@@ -3,5 +3,7 @@ class Space
 
   property :id, Serial
   property :name, String
+  property :description, Text, length: 10000
+  property :price, Float
 
 end

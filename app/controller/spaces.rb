@@ -1,7 +1,7 @@
 class Bnb < Sinatra::Base
 
   get '/spaces' do
-    @spaces = Space.all
+    p @spaces = Space.all
     erb :'/spaces/index'
   end
 
@@ -10,7 +10,10 @@ class Bnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-    space = Space.create(name: params[:space_name])
+    space = Space.create(name: params[:space_name],
+      description: params[:space_description],
+      price: params[:space_price].to_f.round(2)
+      )
     if space
       redirect to :'/spaces'
     else
