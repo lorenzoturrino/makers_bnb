@@ -22,7 +22,6 @@ class Bnb < Sinatra::Base
       session[:user_id] = @user.id
       redirect('/spaces')
     else
-      puts @user.errors.full_messages
       flash.now[:errors]=@user.errors.full_messages
       erb(:'user/new')
     end

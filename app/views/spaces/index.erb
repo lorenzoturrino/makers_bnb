@@ -7,6 +7,10 @@
     Description: <%= space.description %><br>
     Price: <%= "£%.2f" % space.price %><br>
     Username: <%=space.user.username %><br>
+    <form action="/bookings/new" method="post">
+      <input type="hidden" name="space_id" value="<%= space.id %>">
+      <input type="submit" value="Book now">
+    </form>
   </li>
   <% end %>
 </ul>
