@@ -4,4 +4,6 @@ class Space
   property :id, Serial
   property :name, String
 
+
+  belongs_to :user
 end
