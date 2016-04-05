@@ -1,8 +1,5 @@
 feature 'Display spaces' do
 
-
-
-
   scenario 'shows the name of the space' do
     named_signup
     visit '/spaces/new'
