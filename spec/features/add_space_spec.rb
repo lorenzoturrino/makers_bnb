@@ -1,6 +1,7 @@
 feature 'Add space' do
 
   before :each do
+    named_signup
     visit '/spaces/new'
   end
 

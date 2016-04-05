@@ -12,7 +12,6 @@ feature 'SignUp' do
 
   scenario 'A user can sign up' do
     expect{named_signup}.to change{User.count}.by(1)
-
     expect(current_path).to eq '/spaces'
     expect(page).to have_content("Welcome Factory")
   end

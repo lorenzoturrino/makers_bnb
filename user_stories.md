@@ -58,12 +58,17 @@
 * Reset Password
 
 * Extra properties of Listings
-  ** Tags
+  *Tags
   ** Pictures
+
 
 * Add a date range for bookings
 * data validation on new listings
 
+
+* Add a date range for bookinng
+
+* A host can see their spaces
 
 
 ### Bugs
