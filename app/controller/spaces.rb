@@ -11,7 +11,7 @@ class Bnb < Sinatra::Base
 
   post '/spaces/new' do
 
-    space = Space.create(name: params[:space_name],
+    space = Space.new(name: params[:space_name],
       description: params[:space_description],
       price: params[:space_price].to_f.round(2)
       )
