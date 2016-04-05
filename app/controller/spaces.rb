@@ -1,7 +1,7 @@
 class Bnb < Sinatra::Base
 
   get '/spaces' do
-    p @spaces = Space.all
+    @spaces = Space.all
     erb :'/spaces/index'
   end
 
