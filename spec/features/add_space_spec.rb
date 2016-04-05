@@ -2,7 +2,7 @@ feature 'Add space' do
   let(:name){'MY SPACE'}
   let(:description){'description'}
   let(:price){'12.11'}
-  let(:date){'1 may 2016'}
+  let(:date){'2016-05-01'}
 
   before :each do
     named_signup

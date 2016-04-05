@@ -5,7 +5,7 @@ class Space
   property :name, String
   property :description, Text, length: 10000
   property :price, Float
-  property :availability, Text
+  property :availability, Date
 
   belongs_to :user
 end

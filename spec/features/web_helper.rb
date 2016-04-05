@@ -1,3 +1,5 @@
+require 'date'
+
 def signup(name=nil, username=nil, email=nil, password=nil, password_confirm = nil)
   visit('/')
   fill_in(:name, with: name)
@@ -18,4 +20,11 @@ def signin(email=nil, password=nil)
   fill_in(:email, with: email)
   fill_in(:password, with: password)
   click_button('Sign in')
+end
+
+def create_space(name,description,price,date)
+  newspace = Space.new(name: name, description: description, price: price.to_f, availability: Date.parse(date))
+  named_signup
+  newspace.user = User.first
+  newspace.save
 end
