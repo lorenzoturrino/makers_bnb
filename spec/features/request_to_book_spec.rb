@@ -13,5 +13,6 @@ feature 'Request space' do
     fill_in :date_requested, with: '01/01/2016'
     click_button 'Submit'
     expect(page).to have_content "Request sent"
+    expect(current_path).to eq('/spaces')
   end
 end
