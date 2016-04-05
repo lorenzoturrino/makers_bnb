@@ -7,11 +7,12 @@ class Bnb < Sinatra::Base
   end
 
   get '/spaces/new' do
-    erb :'/spaces/new'
+    if User.get(session[:user_id]) ? erb :'/spaces/new' : redirect('/')
   end
 
   post '/spaces/new' do
-
+    if User.get(session[:user_id]) ? erb :'/spaces/new' : redirect('/')
+      
     space = Space.new(name: params[:space_name])
    
     space.user = User.get(session[:user_id])
