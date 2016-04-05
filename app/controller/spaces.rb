@@ -2,6 +2,7 @@ class Bnb < Sinatra::Base
 
   get '/spaces' do
     @spaces = Space.all
+   
     erb :'/spaces/index'
   end
 
@@ -10,7 +11,12 @@ class Bnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-    space = Space.create(name: params[:space_name])
+
+    space = Space.new(name: params[:space_name])
+   
+    space.user = User.get(session[:user_id])
+    space.save   
+
     if space
       redirect to :'/spaces'
     else

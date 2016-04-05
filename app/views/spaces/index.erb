@@ -3,5 +3,6 @@
 <ul>
   <% @spaces.each do |space| %>
   <li>Space name: <%= space.name %></li>
+  <li>Username: <%=space.user.username %></li>
   <% end %>
 </ul>
