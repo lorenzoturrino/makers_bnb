@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/robota/propro/makers_bnb/app/app.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/app.rb": [
         1,
         null,
         1,
@@ -16,7 +16,7 @@
         1,
         1
       ],
-      "/Users/robota/propro/makers_bnb/app/data_mapper_setup.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/data_mapper_setup.rb": [
         1,
         1,
         1,
@@ -30,7 +30,7 @@
         null,
         1
       ],
-      "/Users/robota/propro/makers_bnb/app/server.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/server.rb": [
         1,
         null,
         1,
@@ -43,14 +43,14 @@
         null,
         1,
         1,
-        31,
+        39,
         null,
         null,
         null,
         1,
         null
       ],
-      "/Users/robota/propro/makers_bnb/app/model/space.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/model/space.rb": [
         1,
         1,
         null,
@@ -59,7 +59,7 @@
         null,
         null
       ],
-      "/Users/robota/propro/makers_bnb/app/model/user.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/model/user.rb": [
         1,
         1,
         null,
@@ -80,29 +80,29 @@
         1,
         1,
         null,
+        null,
+        1,
+        9,
+        9,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/controller/spaces.rb": [
+        1,
         null,
         1,
         8,
         8,
-        null,
-        null,
-        1,
-        2,
-        2,
-        2,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/robota/propro/makers_bnb/app/controller/spaces.rb": [
-        1,
-        null,
-        1,
-        7,
-        7,
         null,
         null,
         1,
@@ -119,29 +119,29 @@
         null,
         null
       ],
-      "/Users/robota/propro/makers_bnb/app/controller/user.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/controller/user.rb": [
         1,
         null,
         1,
-        13,
-        10,
+        17,
+        14,
         null,
         null,
         1,
-        10,
-        10,
+        15,
+        15,
         null,
         null,
         1,
-        7,
+        8,
         null,
         null,
         null,
         null,
         null,
-        7,
-        3,
-        3,
+        8,
+        4,
+        4,
         null,
         4,
         4,
@@ -150,48 +150,48 @@
         null,
         null
       ],
-      "/Users/robota/propro/makers_bnb/app/controller/session.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/app/controller/session.rb": [
         1,
-        null,
-        1,
-        2,
-        null,
-        null,
-        1,
-        2,
-        null,
-        null,
-        2,
-        2,
-        2,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/robota/propro/makers_bnb/spec/features/web_helper.rb": [
-        1,
-        7,
-        7,
-        7,
-        7,
-        7,
-        7,
-        7,
-        null,
         null,
         1,
         3,
         null,
         null,
+        1,
+        2,
+        null,
+        null,
+        2,
+        2,
+        2,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/spec/features/web_helper.rb": [
+        1,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        null,
+        null,
+        1,
+        4,
+        null,
+        null,
         null,
         1,
         2,
@@ -200,7 +200,7 @@
         2,
         null
       ],
-      "/Users/robota/propro/makers_bnb/spec/features/add_space_spec.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/spec/features/add_space_spec.rb": [
         1,
         1,
         1,
@@ -211,7 +211,31 @@
         null,
         null
       ],
-      "/Users/robota/propro/makers_bnb/spec/features/session_spec.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/spec/features/navbar_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/spec/features/session_spec.rb": [
         1,
         null,
         1,
@@ -233,7 +257,7 @@
         null,
         null
       ],
-      "/Users/robota/propro/makers_bnb/spec/features/sign_in_spec.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/spec/features/sign_in_spec.rb": [
         1,
         1,
         1,
@@ -243,7 +267,7 @@
         null,
         null
       ],
-      "/Users/robota/propro/makers_bnb/spec/features/sign_out_spec.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/spec/features/sign_out_spec.rb": [
         1,
         1,
         1,
@@ -260,7 +284,7 @@
         null,
         null
       ],
-      "/Users/robota/propro/makers_bnb/spec/features/sign_up_spec.rb": [
+      "/Users/Kohler/Google Drive/makers/6/makers_bnb/spec/features/sign_up_spec.rb": [
         1,
         null,
         1,
@@ -318,6 +342,6 @@
         null
       ]
     },
-    "timestamp": 1459788936
+    "timestamp": 1459855568
   }
 }
