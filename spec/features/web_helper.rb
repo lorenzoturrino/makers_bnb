@@ -77,13 +77,6 @@ def signin(email=nil, password=nil)
   click_button('Sign in')
 end
 
-def create_database_space(name,description,price,date)
-  new_space = Space.new(name: name, description: description, price: price.to_f, available_date: Date.parse(date))
-  new_user = User.create(name: "town", email:"town@girl.com",
-  username:"town_girl", password_hash:"1234")
-  new_space.user = new_user
-  new_space.save
-end
 
 def create_booking
   named_signup
