@@ -61,27 +61,9 @@ def named_signup
   "1234", "1234")
 end
 
-def create_a_space
-  visit '/spaces/new'
-  fill_in :space_name, with: 'MY SPACE'
-  fill_in :space_description, with: 'this is a description and also myspace is alive'
-  fill_in :space_price, with: "10.22"
-  fill_in :space_availability, with: "2016-05-01"
-  click_button 'Submit'
-end
-
 def signin(email=nil, password=nil)
   visit('/session/new')
   fill_in(:email, with: email)
   fill_in(:password, with: password)
   click_button('Sign in')
-end
-
-
-def create_booking
-  named_signup
-  create_a_space
-  click_button 'Book now'
-  fill_in :date_requested, with: '01/01/2016'
-  click_button 'Submit'
 end
