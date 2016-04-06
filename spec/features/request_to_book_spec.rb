@@ -17,4 +17,10 @@ feature 'Request space' do
     expect(current_path).to eq('/spaces')
   end
 
+  scenario 'Request date gets parsed correctly' do
+    create_booking
+    database_entry = Booking.first
+    expect(database_entry.date_requested.to_s).to eq("2016-01-01")
+  end
+
 end
