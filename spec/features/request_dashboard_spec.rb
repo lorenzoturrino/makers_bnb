@@ -42,4 +42,10 @@ feature 'Request Dashboard' do
     expect(current_path).to eq '/requests'
     expect(page).to have_content 'Space request confirmed :)'
   end
+
+  scenario 'User changes status of booking request from pending to confirmed' do
+    click_button 'Confirm'
+    expect(page).to have_content 'Status: Confirmed'
+    expect(page).not_to have_content 'Status: Pending'
+  end
 end

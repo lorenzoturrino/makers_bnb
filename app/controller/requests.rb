@@ -5,6 +5,9 @@ class Bnb < Sinatra::Base
   end
 
   post '/requests' do
+    booking = Booking.get(params[:booking_id])
+    booking.status = 'Confirmed'
+    booking.save
     flash.keep[:notice] = "Space request confirmed :)"
     redirect('/requests')
   end
