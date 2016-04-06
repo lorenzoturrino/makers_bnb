@@ -4,6 +4,14 @@ feature 'Display spaces' do
   let(:price){'12.11'}
   let(:date){'2016-05-01'}
 
+  before :each do
+    # host = db_create_user("dude","d@m.com","dude","t")
+    # guest = db_create_user("bro","b@m.com","bro","s")
+    # space_one = db_create_space("first house","pretty",10.01,Date.parse("11 may 2016"),host.id)
+    # space_two = db_create_space("second house","nice",10.01,Date.parse("11 may 2016"),host.id)
+    # space_three = db_create_space("third house","awesome",10.01,Date.parse("12 may 2016"),host.id)
+  end
+
   scenario 'shows the name of the space' do
     create_database_space(name,description,price,date)
     named_signup
