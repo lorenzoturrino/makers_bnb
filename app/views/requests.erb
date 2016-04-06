@@ -1,0 +1,14 @@
+<h1>Requests</h1>
+<ul>
+  <% @bookings.each do |booking| %>
+  <li>Property name:  <%= Space.get(booking.space_id).name %> </li>
+  <li>Guest info:  <%= User.get(booking.guest_id).name %> </li>
+  <li>Status:  <%= booking.status %> </li>
+  <li>Date requested:  <%= booking.date_requested %> </li>
+  <li>
+    <form action="/requests" method="post">
+      <button type="submit" name="confirmed">Confirm</button>
+    </form>
+  </li>
+  <% end %>
+</ul>
