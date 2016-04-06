@@ -48,4 +48,9 @@ feature 'Request Dashboard' do
     expect(page).to have_content 'Status: Confirmed'
     expect(page).not_to have_content 'Status: Pending'
   end
+
+  scenario 'User should not see confirm button once booking status is confirmed' do
+    click_button 'Confirm'
+    expect(page).not_to have_button 'Confirm'
+  end
 end
