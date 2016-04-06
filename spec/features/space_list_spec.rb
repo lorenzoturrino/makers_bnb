@@ -37,10 +37,10 @@ feature 'Display spaces' do
     space_two = db_create_space("second house","nice",12.44,Date.parse("11 may 2016"),host.id)
 
     named_signup
-    fill_in 'filter_date', with: "2016-05-12"
+    fill_in :filter_date, with: "12/05/2016"
     click_button 'Filter Date'
-    expect(page).to have_content('second house')
-    expect(page).not_to have_content('first house')
+    expect(page).to have_content('first house')
+    expect(page).not_to have_content('second house')
   end
 
   scenario 'guest can filter listing by date' do

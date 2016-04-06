@@ -3,7 +3,11 @@ class Bnb < Sinatra::Base
   get '/spaces' do
 
    redirect('/') unless User.get(session[:user_id])
+   if params[:filter_date]
+    @display_date = Date.parse(params[:filter_date])
+  else
     @display_date = nil
+  end
     @spaces = Space.all
     @bookings = Booking.all
     erb :'/spaces/index'

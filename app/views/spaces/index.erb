@@ -4,7 +4,7 @@
   <form action='/spaces' method="get">
     Displaying Spaces available on <%= @display_date %>, select another date:<br>
     <input type='date' name='filter_date'>
-    <input type='submit' name='filter_date' value='Filter Date'>
+    <input type='submit' name='submit' value='Filter Date'>
   </form>
   <% @spaces.each do |space|
         space_bookings = @bookings.all(space_id: space.id) || []
