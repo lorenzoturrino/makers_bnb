@@ -8,5 +8,6 @@ class Space
   property :available_date, Date
 
   belongs_to :user
+  has n, :bookings
 
 end

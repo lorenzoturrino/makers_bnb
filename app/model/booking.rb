@@ -8,4 +8,5 @@ class Booking
   property :status, String
   property :date_requested, Date
   property :total_price, Float
+
 end
