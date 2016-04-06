@@ -1,4 +1,4 @@
-class Bnb <Sinatra::Base
+class Bnb < Sinatra::Base
 
   get '/session/new' do
     erb (:'session/new')

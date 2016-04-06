@@ -70,6 +70,8 @@
 
 * A host can see their spaces
 
+* Allow users to complete different bookings at different times (rather than just their most recent booking)
+
 
 ### Bugs
 * Sessions do not persist a server restart
