@@ -12,29 +12,35 @@ end
 
 
 def submit_signup_form(name,username,email,password,password_confirm)
-  fill_in :name , with: name
-  fill_in :username , with: username
-  fill_in :email , with: email
-  fill_in :password , with: password
-  fill_in :password_confirm , with: password_confirm
-  click_button 'Sign Up'
+  fill_in :name, with: name
+  fill_in :username, with: username
+  fill_in :email, with: email
+  fill_in :password, with: password
+  fill_in :password_confirm, with: password_confirm
+  click_button 'sign_up'
 end
 
 def submit_new_space_form(name,description,price)
-  fill_in :space_name , with: name
-  fill_in :space_description , with: description
-  fill_in :space_price , with: price
+  fill_in :space_name, with: name
+  fill_in :space_description, with: description
+  fill_in :space_price, with: price
   click_button 'Submit'
 end
 
 def submit_booking_form(date)
-  fill_in :date_requested , with: date
+  fill_in :date_requested, with: date
   click_button 'Submit'
 end
 
 def submit_login_form(email,password)
   fill_in :email , with: email
   fill_in :password , with: password
+  click_button 'sign_in'
+end
+
+def submit_filter_form(date)
+  fill_in :filter_date , with: date
+  click_button 'filter_date'
 end
 
 
