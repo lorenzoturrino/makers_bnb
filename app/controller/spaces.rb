@@ -13,13 +13,13 @@ class Bnb < Sinatra::Base
   end
 
   post '/spaces/new' do
-    p params[:space_availability]
-    p availability = Date.parse(params[:space_availability])
+    params[:space_availability]
+    availability = Date.parse(params[:space_availability])
 
     space = Space.new(name: params[:space_name],
       description: params[:space_description],
       price: params[:space_price].to_f.round(2),
-      availability: availability
+      available_date: availability
       )
 
     space.user = User.get(session[:user_id])

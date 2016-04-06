@@ -23,7 +23,7 @@ def signin(email=nil, password=nil)
 end
 
 def create_space(name,description,price,date)
-  newspace = Space.new(name: name, description: description, price: price.to_f, availability: Date.parse(date))
+  newspace = Space.new(name: name, description: description, price: price.to_f, available_date: Date.parse(date))
   named_signup
   newspace.user = User.first
   newspace.save
