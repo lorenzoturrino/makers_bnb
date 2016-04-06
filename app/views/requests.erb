@@ -1,17 +1,26 @@
 <h1>Requests</h1>
 <ul>
-  <% @host_requests.each do |host_requests| %>
-    <li>Property name:  <%= Space.get(host_requests.space_id).name %> </li>
-    <li>Guest info:  <%= User.get(host_requests.guest_id).name %> </li>
-    <li>Status:  <%= host_requests.status %> </li>
-    <li>Date requested:  <%= host_requests.date_requested %> </li>
-    <% unless host_requests.status == 'Confirmed' %>
-      <li>
-        <form action="/requests" method="post">
-          <input type="hidden" name="host_request_id" value="<%= host_requests.id %>">
-          <button type="submit" name="confirmed">Confirm</button>
-        </form>
-      </li>
+  <% @host_requests.each do |host_request| %>
+    <% if host_request.date_requested%>
+      <li>Property name:  <%= Space.get(host_request.space_id).name %> </li>
+      <li>Guest info:  <%= User.get(host_request.guest_id).name %> </li>
+      <li>Status:  <%= host_request.status %> </li>
+      <li>Date requested:  <%= host_request.date_requested %> </li>
+      <% unless (host_request.status == 'Confirmed') || (host_request.status == 'Declined') %>
+        <li>
+          <form action="/requests" method="post">
+            <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
+            <button type="submit" name="confirmed" value="true">Confirm</button>
+          </form>
+        </li>
+
+        <li>
+          <form action="/requests" method="post">
+            <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
+            <button type="submit" name="declined" value="false">Decline</button>
+          </form>
+        </li>
+      <% end %>
     <% end %>
   <% end %>
 </ul>
