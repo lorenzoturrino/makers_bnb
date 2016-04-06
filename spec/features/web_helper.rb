@@ -1,5 +1,3 @@
-require 'date'
-
 def signup(name=nil, username=nil, email=nil, password=nil, password_confirm = nil)
   visit('/')
   fill_in(:name, with: name)
@@ -36,4 +34,12 @@ def create_database_space(name,description,price,date)
   named_signup
   newspace.user = User.first
   newspace.save
+end
+
+def create_booking
+  named_signup
+  create_a_space
+  click_button 'Book now'
+  fill_in :date_requested, with: '01/01/2016'
+  click_button 'Submit'
 end

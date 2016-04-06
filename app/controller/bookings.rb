@@ -19,7 +19,8 @@ class Bnb < Sinatra::Base
   post '/bookings' do
     booking = Booking.get(session[:booking_id])
     booking_price_per_night = Space.get(booking.space_id).price
-    booking.update(date_requested: params[:date_requested],
+    date_requested = Date.parse(params[:date_requested])
+    booking.update(date_requested: date_requested,
             total_price: booking_price_per_night,
             status: 'pending')
     flash.keep[:notice] = "Request sent"
