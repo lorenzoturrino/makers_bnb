@@ -4,9 +4,9 @@
     <% if host_request.date_requested%>
       <li>Property name:  <%= Space.get(host_request.space_id).name %> </li>
       <li>Guest info:  <%= User.get(host_request.guest_id).name %> </li>
-      <li>Status:  <%= host_request.status %> </li>
+      <li>Status:  <%= host_request.status.capitalize %> </li>
       <li>Date requested:  <%= host_request.date_requested %> </li>
-      <% unless (host_request.status == 'Confirmed') || (host_request.status == 'Declined') %>
+      <% unless (host_request.status == 'confirmed') || (host_request.status == 'declined') %>
         <li>
           <form action="/requests" method="post">
             <input type="hidden" name="host_request_id" value="<%= host_request.id %>">

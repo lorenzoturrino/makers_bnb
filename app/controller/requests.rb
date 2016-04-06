@@ -7,13 +7,13 @@ class Bnb < Sinatra::Base
   post '/requests' do
     if  params[:confirmed]
       booking = Booking.get(params[:host_request_id])
-      booking.status = 'Confirmed'
+      booking.status = 'confirmed'
       booking.save
       flash.keep[:notice] = "Space request confirmed :)"
       redirect('/requests')
     else 
       booking = Booking.get(params[:host_request_id])
-      booking.status = 'Declined'
+      booking.status = 'declined'
       booking.save
       flash.keep[:notice] = "Space request was declined :("
       redirect('/requests')
