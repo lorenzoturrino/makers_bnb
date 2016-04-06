@@ -35,7 +35,9 @@ feature 'Display spaces' do
   end
 
   scenario 'guest can filter listing by date' do
-
+    named_signup
+    expect(page).to have_field('filter_date')
+    expect(page).to have_button('Filter Date')
   end
 
 end
