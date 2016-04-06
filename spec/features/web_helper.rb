@@ -37,3 +37,11 @@ def create_database_space(name,description,price,date)
   newspace.user = User.first
   newspace.save
 end
+
+def create_booking
+  named_signup
+  create_a_space
+  click_button 'Book now'
+  fill_in :date_requested, with: '01/01/2016'
+  click_button 'Submit'
+end

@@ -8,4 +8,5 @@ class Space
   property :available_date, Date
 
   belongs_to :user
+
 end
