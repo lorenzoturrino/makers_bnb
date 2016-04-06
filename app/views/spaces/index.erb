@@ -1,17 +1,20 @@
 <h1>Current Spaces available</h1>
 
 <ul>
-  <% @spaces.each do |space| %>
-  <li>
-    Name: <%= space.name %><br>
-    Description: <%= space.description %><br>
-    Price: <%= "£%.2f" % space.price %><br>
-    Available: <%= space.available_date %><br>
-    Username: <%=space.user.username %><br>
-    <form action="/bookings/new" method="post">
-      <input type="hidden" name="space_id" value="<%= space.id %>">
-      <input type="submit" name="<%= space.id %>" value="Book now">
-    </form>
-  </li>
+  <% @spaces.each do |space|
+        space_bookings = @bookings.all(space_id: space.id) || []
+        unless space_bookings.any? { |booking| booking.status=="confirmed" } %>
+          <li>
+            Name: <%= space.name %><br>
+            Description: <%= space.description %><br>
+            Price: <%= "£%.2f" % space.price %><br>
+            Available: <%= space.available_date %><br>
+            Username: <%=space.user.username %><br>
+            <form action="/bookings/new" method="post">
+              <input type="hidden" name="space_id" value="<%= space.id %>">
+              <input type="submit" name="<%= space.id %>" value="Book now">
+            </form>
+          </li>
+        <% end %>
   <% end %>
 </ul>
