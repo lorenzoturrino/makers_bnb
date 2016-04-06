@@ -15,45 +15,68 @@ feature 'Request Dashboard' do
     visit 'requests'
   end
 
-  scenario 'User should have a request dashboard' do
-    expect(page.status_code).to eq 200
-    expect(page).to have_content 'Requests'
-  end
+  feature 'Host' do
+    scenario 'should have a request dashboard' do
+      expect(page.status_code).to eq 200
+      expect(page).to have_content 'Requests'
+    end
 
-  scenario 'User should only see requests for their own spaces' do
-    expect(page).to have_content('BigBen')
-    expect(page).to have_content('Kyle')
-    expect(page).to have_content('Status: Pending')
-    expect(page).to have_content('Date requested: 2016-05-12')
-    expect(page).not_to have_content('The Rizz')
-    expect(page).not_to have_content('In paris. La vie!')
-  end
+    scenario 'should only see requests for their own spaces' do
+      expect(page).to have_content('BigBen')
+      expect(page).to have_content('Kyle')
+      expect(page).to have_content('Status: Pending')
+      expect(page).to have_content('Date requested: 2016-05-12')
+      expect(page).not_to have_content('The Rizz')
+      expect(page).not_to have_content('In paris. La vie!')
+    end
 
-  scenario 'User should receive new request on dashboard' do
-    expect(page).to have_content('BigBen')
-    expect(page).to have_content('Kyle')
-    expect(page).to have_content('Status: Pending')
-    expect(page).to have_content('Date requested: 2016-05-12')
-  end
+    scenario 'should receive new request on dashboard' do
+      expect(page).to have_content('BigBen')
+      expect(page).to have_content('Kyle')
+      expect(page).to have_content('Status: Pending')
+      expect(page).to have_content('Date requested: 2016-05-12')
+    end
 
-  scenario 'User can confirm guest request' do
-    expect(page).to have_button 'Confirm'
-  end
+    scenario 'can confirm guest request' do
+      expect(page).to have_button 'Confirm'
+    end
 
-  scenario 'User sees confirmation after clicking confirm' do
-    click_button 'Confirm'
-    expect(current_path).to eq '/requests'
-    expect(page).to have_content 'Space request confirmed :)'
-  end
+    scenario 'sees a confirmation flash after clicking confirm' do
+      click_button 'Confirm'
+      expect(current_path).to eq '/requests'
+      expect(page).to have_content 'Space request confirmed :)'
+    end    
 
-  scenario 'User changes status of booking request from pending to confirmed' do
-    click_button 'Confirm'
-    expect(page).to have_content 'Status: Confirmed'
-    expect(page).not_to have_content 'Status: Pending'
-  end
+    scenario 'changes status of booking request from pending to confirmed' do
+      click_button 'Confirm'
+      expect(page).to have_content 'Status: Confirmed'
+      expect(page).not_to have_content 'Status: Pending'
+    end
 
-  scenario 'User should not see confirm button once booking status is confirmed' do
-    click_button 'Confirm'
-    expect(page).not_to have_button 'Confirm'
+    scenario 'should not see confirm or decline button once booking status is confirmed' do
+      click_button 'Confirm'
+      expect(page).not_to have_button 'Confirm'
+    end
+
+    scenario 'can decline a guest request' do
+      expect(page).to have_button 'Decline'
+    end
+
+    scenario 'sees a declined flash after clicking decline' do
+      click_button 'Decline'
+      expect(current_path).to eq '/requests'
+      expect(page).to have_content 'Space request was declined :('
+    end
+
+    scenario 'changes status of booking request from pending to declined' do
+      click_button 'Decline'
+      expect(page).to have_content 'Status: Declined'
+      expect(page).not_to have_content 'Status: Pending'
+    end
+
+    scenario 'should not see confirm or decline button once booking status is confirmed' do
+      click_button 'Decline'
+      expect(page).not_to have_button 'Decline'
+    end
   end
 end
