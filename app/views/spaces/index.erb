@@ -2,12 +2,15 @@
 
 <ul>
   <form action='/spaces' method="get">
+    Displaying Spaces available on <%= @display_date %>, select another date:<br>
     <input type='date' name='filter_date'>
     <input type='submit' name='filter_date' value='Filter Date'>
   </form>
   <% @spaces.each do |space|
         space_bookings = @bookings.all(space_id: space.id) || []
-        unless space_bookings.any? { |booking| booking.status=="confirmed" } %>
+        not_booked = space_bookings.all? { |booking| booking.status!="confirmed" }
+        listed = @display_date ? space.available_date == @display_date : true
+        if not_booked && listed %>
           <li>
             Name: <%= space.name %><br>
             Description: <%= space.description %><br>

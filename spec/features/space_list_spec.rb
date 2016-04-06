@@ -26,12 +26,21 @@ feature 'Display spaces' do
     db_create_booking(space_one.id,host.id,guest.id,"confirmed",Date.parse("11 may 2016"),15.22)
 
     named_signup
+
     expect(page).to have_content('second house')
     expect(page).not_to have_content('first house')
   end
 
-  scenario 'does not show a space if not available' do
+  scenario 'show only spaces that are listed for the given day' do
+    host = db_create_user("dude","d@m.com","dude","t")
+    space_one = db_create_space("first house","pretty",10.44,Date.parse("12 may 2016"),host.id)
+    space_two = db_create_space("second house","nice",12.44,Date.parse("11 may 2016"),host.id)
 
+    named_signup
+    fill_in 'filter_date', with: "2016-05-12"
+    click_button 'Filter Date'
+    expect(page).to have_content('second house')
+    expect(page).not_to have_content('first house')
   end
 
   scenario 'guest can filter listing by date' do
