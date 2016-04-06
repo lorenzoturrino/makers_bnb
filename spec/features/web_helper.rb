@@ -1,5 +1,3 @@
-require 'date'
-
 def signup(name=nil, username=nil, email=nil, password=nil, password_confirm = nil)
   visit('/')
   fill_in(:name, with: name)
