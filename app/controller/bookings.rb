@@ -1,4 +1,4 @@
-class Bnb <Sinatra::Base
+class Bnb < Sinatra::Base
 
   get '/bookings/new' do
     erb :'bookings/new'
