@@ -1,8 +1,4 @@
 feature 'Main page:' do
-  let(:name){'MY SPACE'}
-  let(:description){'description'}
-  let(:price){'12.11'}
-  let(:date){'2016-05-01'}
 
   before :each do
     host = db_create_user("dude","d@m.com","dude","dude_pass")

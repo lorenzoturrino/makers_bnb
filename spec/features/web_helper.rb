@@ -20,10 +20,11 @@ def submit_signup_form(name,username,email,password,password_confirm)
   click_button 'sign_up'
 end
 
-def submit_new_space_form(name,description,price)
+def submit_new_space_form(name,description,price, date)
   fill_in :space_name, with: name
   fill_in :space_description, with: description
   fill_in :space_price, with: price
+  fill_in :space_availability, with: date
   click_button 'Submit'
 end
 
