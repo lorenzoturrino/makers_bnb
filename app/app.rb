@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
 require 'tilt/erb'
+require 'date'
 
 require_relative 'data_mapper_setup'
 

@@ -1,4 +1,8 @@
 feature 'Add space' do
+  let(:name){'MY SPACE'}
+  let(:description){'description'}
+  let(:price){'12.11'}
+  let(:date){'2016-05-01'}
 
   before :each do
     named_signup
@@ -6,14 +10,16 @@ feature 'Add space' do
   end
 
   scenario 'to table' do
-    fill_in :space_name, with: 'MY SPACE'
-    fill_in :space_description, with: 'this is a description and also myspace is alive'
-    fill_in :space_price, with: "10.22"
+    fill_in :space_name, with: name
+    fill_in :space_description, with: description
+    fill_in :space_price, with: price
+    fill_in :space_availability, with: date
     click_button 'Submit'
 
-    expect(page).to have_content('MY SPACE')
-    expect(page).to have_content('this is a description')
-    expect(page).to have_content('£10.22')
+    expect(page).to have_content(name)
+    expect(page).to have_content(description)
+    expect(page).to have_content(price)
+    expect(page).to have_content(date)
     expect(current_path).to eq '/spaces'
   end
 
