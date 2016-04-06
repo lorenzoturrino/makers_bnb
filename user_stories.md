@@ -77,3 +77,6 @@
 
 ### Bugs
 * Sessions do not persist a server restart
+
+### Testing
+* Users get redirected to the booking page for the correct page
