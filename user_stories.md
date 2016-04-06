@@ -72,6 +72,8 @@
 
 * Allow users to complete different bookings at different times (rather than just their most recent booking)
 
+* User can sort booking requests by pending/confirmed/declined
+
 
 ### Bugs
 * Sessions do not persist a server restart
