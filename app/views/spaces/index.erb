@@ -10,7 +10,7 @@
     Username: <%=space.user.username %><br>
     <form action="/bookings/new" method="post">
       <input type="hidden" name="space_id" value="<%= space.id %>">
-      <input type="submit" value="Book now">
+      <input type="submit" name="<%= space.id %>" value="Book now">
     </form>
   </li>
   <% end %>
