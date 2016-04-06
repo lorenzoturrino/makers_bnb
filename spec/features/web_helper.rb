@@ -45,8 +45,6 @@ def create_booking
   click_button 'Submit'
 end
 
-#all db_create functions expect you to pass data in the right format (date in Date, user as an User obj...)
-
 def db_create_user(name,email,username,pass)
   User.create(name: name, email: email, username: username, password: pass, password_confirmation: pass)
 end

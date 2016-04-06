@@ -4,9 +4,9 @@ class Bnb < Sinatra::Base
 
    redirect('/') unless User.get(session[:user_id])
    if params[:filter_date]
-    @display_date = Date.parse(params[:filter_date])
+    @filter_date = Date.parse(params[:filter_date])
   else
-    @display_date = nil
+    @filter_date = nil
   end
     @spaces = Space.all
     @bookings = Booking.all
