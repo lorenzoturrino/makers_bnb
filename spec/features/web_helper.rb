@@ -30,10 +30,11 @@ def signin(email=nil, password=nil)
 end
 
 def create_database_space(name,description,price,date)
-  newspace = Space.new(name: name, description: description, price: price.to_f, available_date: Date.parse(date))
-  named_signup
-  newspace.user = User.first
-  newspace.save
+  new_space = Space.new(name: name, description: description, price: price.to_f, available_date: Date.parse(date))
+  new_user = User.create(name: "town", email:"town@girl.com",
+  username:"town_girl", password_hash:"1234")
+  new_space.user = new_user
+  new_space.save
 end
 
 def create_booking

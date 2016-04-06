@@ -6,14 +6,16 @@ feature 'Display spaces' do
 
   scenario 'shows the name of the space' do
     create_database_space(name,description,price,date)
+    named_signup
     visit '/spaces'
-    expect(page).to have_content(name)
+    expect(page).to have_content('MY SPACE')
   end
 
-  scenario ' shows the name of the host' do
+  scenario 'shows the name of the host' do
     create_database_space(name,description,price,date)
+    named_signup
     visit '/spaces'
-    expect(page).to have_content('Factory')
+    expect(page).to have_content('town_girl')
   end
 
 end
