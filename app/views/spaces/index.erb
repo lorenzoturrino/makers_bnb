@@ -1,17 +1,27 @@
 <h1>Current Spaces available</h1>
 
 <ul>
-  <% @spaces.each do |space| %>
-  <li>
-    Name: <%= space.name %><br>
-    Description: <%= space.description %><br>
-    Price: <%= "£%.2f" % space.price %><br>
-    Available: <%= space.available_date %><br>
-    Username: <%=space.user.username %><br>
-    <form action="/bookings/new" method="post">
-      <input type="hidden" name="space_id" value="<%= space.id %>">
-      <input type="submit" value="Book now">
-    </form>
-  </li>
+  <form action='/spaces' method="get">
+    Displaying Spaces available on <%= @display_date %>, select another date:<br>
+    <input type='date' name='filter_date'>
+    <input type='submit' name='filter_date' value='Filter Date'>
+  </form>
+  <% @spaces.each do |space|
+        space_bookings = @bookings.all(space_id: space.id) || []
+        not_booked = space_bookings.all? { |booking| booking.status!="confirmed" }
+        listed = @display_date ? space.available_date == @display_date : true
+        if not_booked && listed %>
+          <li>
+            Name: <%= space.name %><br>
+            Description: <%= space.description %><br>
+            Price: <%= "£%.2f" % space.price %><br>
+            Available: <%= space.available_date %><br>
+            Username: <%=space.user.username %><br>
+            <form action="/bookings/new" method="post">
+              <input type="hidden" name="space_id" value="<%= space.id %>">
+              <input type="submit" name="<%= space.id %>" value="Book now">
+            </form>
+          </li>
+        <% end %>
   <% end %>
 </ul>
