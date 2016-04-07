@@ -3,13 +3,14 @@ feature 'Request Dashboard' do
   let(:guest2) { User.create(name: 'Guest2', username: 'Guest2123', email: 'guest2@me.com', password: 1234, password_confirmation: 1234) }
 
   let(:host1) { User.create(name: 'Host1', username: 'Host1', email: 'host1@me.com', password: 1234, password_confirmation: 1234) }
-  let(:host2) { User.create(name: 'Host2', username: 'Host2', email: 'host2@me.com', password: 1234, password_confirmation: 1234)}
+  let(:host2) { User.create(name: 'Host2', username: 'Host2', email: 'host2@me.com', password: 1234, password_confirmation: 1234) }
+  let(:host3) { User.create(name: 'Host3', username: 'Host3', email: 'host3@me.com', password: 1234, password_confirmation: 1234) }
 
   let(:space1) { Space.create(name: 'BigBen', description: 'Big bell in London', price: 250, user: host1) }
-  let(:space2) { Space.create(name: 'The Rizz', description: 'In paris. La vie!', price: 250, user: host2)}
+  let(:space2) { Space.create(name: 'The Rizz', description: 'In paris. La vie!', price: 250, user: host2) }
 
   let!(:booking) { Booking.create(space_id: space1.id, host_id: host1.id, guest_id: guest1.id, status: 'Pending', date_requested: '12/05/2016', total_price: 250) }
-  let!(:booking2) { Booking.create(space_id: space2.id, host_id: host2.id, guest_id: guest2.id, status: 'Pending', date_requested: '12/05/2016', total_price: 250) }
+  let!(:booking2) { Booking.create(space_id: space2.id, host_id: host2.id, guest_id: guest1.id, status: 'Pending', date_requested: '12/05/2016', total_price: 250) }
 
   feature 'Host' do
     before :each do
@@ -79,6 +80,13 @@ feature 'Request Dashboard' do
       click_button 'Decline'
       expect(page).not_to have_button 'Decline'
     end
+
+    scenario 'should display message if no requests have been received' do
+      click_button "Sign out"
+      signin(host3.email,1234)
+      visit('requests')
+      expect(page).to have_content('It seems like you haven\'t received any request yet')
+    end
   end
 
   feature 'Guest' do
@@ -98,5 +106,13 @@ feature 'Request Dashboard' do
       expect(page).to have_content('Status: Pending')
       expect(page).to have_content('Date requested: 2016-05-12')
     end
+
+    scenario 'should display message if no requests have been made' do
+      click_button "Sign out"
+      signin(guest2.email,1234)
+      visit('requests')
+      expect(page).to have_content('It seems like you haven\'t made any request yet')
+    end
+
   end
 end
