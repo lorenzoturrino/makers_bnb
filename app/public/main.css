@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+}
+
+.navbar {
+  background-color: yellow;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-welcome {
+  margin-right: auto;
+  font-size: 1.4em;
+  padding: 25px;
+}
+
+.navbar form {
+  display: inline;
+}
+
+.navbar button {
+  font-size: 1.4em;
+  padding: 5px;
+  margin: 0 20px 0 0;;
+}
