@@ -1,6 +1,12 @@
 feature 'Request space' do
+
+  def get_date_range(start_date, end_date )
+      (start_date..end_date).map {|date| date}
+    end
+
+    
   let(:host){db_create_user("host","h@m.com","host","host_pass")}
-  let!(:space_one){db_create_space("first house","pretty",10.01,Date.parse("11 May 2016"),host.id)}
+  let!(:space_one){db_create_space("first house", "pretty", 10.01, Date.parse("11 may 2016"), Date.parse("11 august 2016"), host.id, get_date_range(Date.parse('04/06/2016'),Date.parse('07/06/2016')))}
 
   before :each do
     visit '/'

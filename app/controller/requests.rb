@@ -11,10 +11,7 @@ class Bnb < Sinatra::Base
       booking.save
 
       space = Space.get(booking.space_id)
-      space.booked_dates = get_date_range(booking.booking_start, booking.booking_end)
-
-      puts "Show space"
-      p space
+      space.save
 
       flash.keep[:notice] = "Space request confirmed :)"
       redirect('/requests')

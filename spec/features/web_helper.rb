@@ -2,12 +2,12 @@ def db_create_user(name,email,username,pass)
   User.create(name: name, email: email, username: username, password: pass, password_confirmation: pass)
 end
 
-def db_create_space(name,description,price,date,user_id)
-  Space.create(name: name, description: description, price: price, available_date: date, user_id: user_id)
+def db_create_space(name,description,price,start_date, end_date,user_id, dates)
+  Space.create(name: name, description: description, price: price, start_availability: start_date, end_availability: end_date, user_id: user_id, booked_dates: dates)
 end
 
-def db_create_booking(space_id,host_id,guest_id,status,date,bill)
-  Booking.create(space_id: space_id, host_id: host_id, guest_id: guest_id, status: status, date_requested: date, total_price: bill)
+def db_create_booking(space_id,host_id,guest_id,status,start_date,end_date,bill)
+  Booking.create(space_id: space_id, host_id: host_id, guest_id: guest_id, status: status, booking_start: start_date, booking_end: end_date, total_price: bill)
 end
 
 

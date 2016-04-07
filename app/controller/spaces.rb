@@ -3,11 +3,11 @@ class Bnb < Sinatra::Base
   get '/spaces' do
 
     redirect('/') unless User.get(session[:user_id])
-    
-    if params[:filter_start]
+
+    if params[:filter_start] && params[:filter_end]
       @filter_range = get_date_range((Date.parse(params[:filter_start])), Date.parse((params[:filter_end])))
     else
-      @filter_date = nil
+      @filter_range = nil
     end
     
     @spaces = Space.all
