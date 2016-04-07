@@ -23,7 +23,15 @@ feature 'Navbar' do
   scenario 'Create space' do
     named_signup
     click_button 'Create space'
-    expect(current_path).to eq'/spaces/new'
+    expect(current_path).to eq '/spaces/new'
     expect(page).to have_content('New space')
   end
+
+  scenario 'Check requests' do
+    named_signup
+    click_button 'Check requests'
+    expect(current_path).to eq '/requests'
+    expect(page).to have_content 'Requests'
+  end
+
 end
