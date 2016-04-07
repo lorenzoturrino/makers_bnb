@@ -40,8 +40,9 @@ def submit_login_form(email,password)
   click_button 'Sign in'
 end
 
-def submit_filter_form(date)
-  fill_in :filter_date , with: date
+def submit_filter_form(start_date, end_date)
+  fill_in :filter_start , with: start_date
+  fill_in :filter_end, with: end_date
   click_button 'Filter date'
 end
 

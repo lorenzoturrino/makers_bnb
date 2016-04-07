@@ -25,7 +25,7 @@ feature 'Space list:' do
   end
 
   scenario 'shows all available spaces on a given day' do
-    submit_filter_form("11 may 2016")
+    submit_filter_form("11 may 2016", "16 may 2016")
     expect(page).to have_content('second house')
     expect(page).not_to have_content('first house')
     expect(page).not_to have_content('third house')

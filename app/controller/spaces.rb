@@ -2,12 +2,14 @@ class Bnb < Sinatra::Base
 
   get '/spaces' do
 
-   redirect('/') unless User.get(session[:user_id])
-   if params[:filter_date]
-    @filter_date = Date.parse(params[:filter_date])
-  else
-    @filter_date = nil
-  end
+    redirect('/') unless User.get(session[:user_id])
+    
+    if params[:filter_start]
+      @filter_range = get_date_range((Date.parse(params[:filter_start])), Date.parse((params[:filter_end])))
+    else
+      @filter_date = nil
+    end
+    
     @spaces = Space.all
     @bookings = Booking.all
     erb :'/spaces/index'

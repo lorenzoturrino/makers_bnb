@@ -11,9 +11,11 @@ class Bnb < Sinatra::Base
     booking = Booking.create(space_id: params[:space_id],
             host_id: host_id,
             guest_id: guest_id)
+
     if booking
       session[:booking_id] = booking.id
     end
+    
     redirect 'bookings/new'
   end
 
