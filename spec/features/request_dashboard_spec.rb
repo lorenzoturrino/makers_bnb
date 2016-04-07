@@ -1,5 +1,6 @@
 feature 'Request Dashboard' do
   let(:guest1) { User.create(name: 'Guest', username: 'Guest123', email: 'guest1@me.com', password: 1234, password_confirmation: 1234) }
+  let(:guest2) { User.create(name: 'Guest2', username: 'Guest2123', email: 'guest2@me.com', password: 1234, password_confirmation: 1234) }
 
   let(:host1) { User.create(name: 'Host1', username: 'Host1', email: 'host1@me.com', password: 1234, password_confirmation: 1234) }
   let(:host2) { User.create(name: 'Host2', username: 'Host2', email: 'host2@me.com', password: 1234, password_confirmation: 1234)}
@@ -8,7 +9,7 @@ feature 'Request Dashboard' do
   let(:space2) { Space.create(name: 'The Rizz', description: 'In paris. La vie!', price: 250, user: host2)}
 
   let!(:booking) { Booking.create(space_id: space1.id, host_id: host1.id, guest_id: guest1.id, status: 'Pending', date_requested: '12/05/2016', total_price: 250) }
-  let!(:booking2) { Booking.create(space_id: space2.id, host_id: host2.id, guest_id: guest1.id, status: 'Pending', date_requested: '12/05/2016', total_price: 250) }
+  let!(:booking2) { Booking.create(space_id: space2.id, host_id: host2.id, guest_id: guest2.id, status: 'Pending', date_requested: '12/05/2016', total_price: 250) }
 
   feature 'Host' do
     before :each do

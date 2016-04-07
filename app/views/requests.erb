@@ -1,6 +1,17 @@
 <h1>Requests</h1>
 
 <h2>Requests I've made</h2>
+<ul>
+  <% @guest_requests.each do |guest_request| %>
+    <% if guest_request.date_requested%>
+      <li>Property name:  <%= Space.get(guest_request.space_id).name %> </li>
+      <li>Host info:  <%= User.get(guest_request.host_id).name %> </li>
+      <li>Status:  <%= guest_request.status.capitalize %> </li>
+      <li>Date requested:  <%= guest_request.date_requested %> </li>
+    <% end %>
+  <% end %>
+</ul>
+
 
 <h2>Requests I've received</h2>
 <ul>
