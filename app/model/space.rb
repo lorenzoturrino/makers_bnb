@@ -8,6 +8,7 @@ class Space
   property :available_date, Date
   property :start_availability, Date
   property :end_availability, Date
+  property :booked_dates, Text
   belongs_to :user
   has n, :bookings
 

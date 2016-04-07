@@ -1,16 +1,19 @@
 <h1>Current spaces available</h1>
 
   <form action="/spaces" method="get">
-    Filter by date <input type="date" name="filter_date" placeholder="<%@filter_date%>">
+    Filter by date <input type="date" name="filter_start" placeholder="<%@filter_date%>">
+    to <input type="date" name="filter_end" placeholder="<%@filter_date%>">
     <button type="submit">Filter date</button>
   </form>
 
 <ul>
   <% @spaces.each do |space|
-      space_bookings = @bookings.all(space_id: space.id) || []
-      not_confirmed = space_bookings.all? { |booking| booking.status != "confirmed" }
-      available = @filter_date ? space.start_availability == @filter_date : true        
+      booked_spaces = @bookings.all(space_id: space.id) || []
+      not_confirmed = booked_spaces.all? { |booking| booking.status != "confirmed" }
       
+
+      available = @filter_date ? space.start_availability == @filter_date : true        
+
     if not_confirmed && available %>
       <li>
 
