@@ -7,8 +7,8 @@ feature 'Request Dashboard' do
   let(:space) { Space.create(name: 'BigBen', description: 'Big bell in London', price: 250, user: host) }
   let(:space2) { Space.create(name: 'The Rizz', description: 'In paris. La vie!', price: 250, user: host2)}
 
-  let!(:booking) { Booking.create(space_id: space.id, host_id: host.id, guest_id: guest.id, status: 'Pending', date_requested: '12/05/2016', total_price: 250) }
-  let!(:booking2) { Booking.create(space_id: space2.id, host_id: host2.id, guest_id: guest.id, status: 'Pending', date_requested: '12/05/2016', total_price: 250) }
+  let!(:booking) { Booking.create(space_id: space.id, host_id: host.id, guest_id: guest.id, status: 'Pending', booking_start: '12/05/2016', booking_end: '13/05/2016', total_price: 250) }
+  let!(:booking2) { Booking.create(space_id: space2.id, host_id: host2.id, guest_id: guest.id, status: 'Pending', booking_start: '12/05/2016', booking_end: '13/05/2016', total_price: 250) }
 
   before :each do
     signin('Anne',1234)
@@ -25,7 +25,8 @@ feature 'Request Dashboard' do
       expect(page).to have_content('BigBen')
       expect(page).to have_content('Kyle')
       expect(page).to have_content('Status: Pending')
-      expect(page).to have_content('Date requested: 2016-05-12')
+      expect(page).to have_content('Requested from: 2016-05-12')
+      expect(page).to have_content('until 2016-05-13')
       expect(page).not_to have_content('The Rizz')
       expect(page).not_to have_content('In paris. La vie!')
     end
@@ -34,7 +35,8 @@ feature 'Request Dashboard' do
       expect(page).to have_content('BigBen')
       expect(page).to have_content('Kyle')
       expect(page).to have_content('Status: Pending')
-      expect(page).to have_content('Date requested: 2016-05-12')
+      expect(page).to have_content('Requested from: 2016-05-12')
+      expect(page).to have_content('until 2016-05-13')
     end
 
     scenario 'can confirm guest request' do

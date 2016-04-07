@@ -28,8 +28,9 @@ def submit_new_space_form(name,description,price, date)
   click_button 'Submit'
 end
 
-def submit_booking_form(date)
-  fill_in :date_requested, with: date
+def submit_booking_form(start_date, end_date)
+  fill_in :booking_start, with: start_date
+  fill_in :booking_end, with: end_date
   click_button 'Submit'
 end
 

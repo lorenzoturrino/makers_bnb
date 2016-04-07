@@ -1,32 +1,32 @@
 <h1>Current spaces available</h1>
 
-<ul>
   <form action="/spaces" method="get">
-    Filter by date<br>
-    <input type="date" name="filter_date" placeholder="<%@filter_date%>">
+    Filter by date <input type="date" name="filter_date" placeholder="<%@filter_date%>">
     <button type="submit">Filter date</button>
-  
   </form>
+
+<ul>
   <% @spaces.each do |space|
-        space_bookings = @bookings.all(space_id: space.id) || []
-        not_confirmed = space_bookings.all? { |booking| booking.status != "confirmed" }
-        available = @filter_date ? space.available_date == @filter_date : true
-        
-        if not_confirmed && available %>
-          <li>
-            Name: <%= space.name %><br>
-            Description: <%= space.description %><br>
-            Price: <%= "£%.2f" % space.price %><br>
-            Available Dates: <%= space.start_availability%><br>
-            Available Dates: <%= space.end_availability%><br>
-            Username: <%=space.user.username %><br>
+      space_bookings = @bookings.all(space_id: space.id) || []
+      not_confirmed = space_bookings.all? { |booking| booking.status != "confirmed" }
+      available = @filter_date ? space.start_availability == @filter_date : true        
+      
+    if not_confirmed && available %>
+      <li>
 
-            <form action="/bookings/new" method="post">
-              <input type="hidden" name="space_id" value="<%= space.id %>">
-              <input type="submit" name="<%= space.id %>" value="Book now">
-            </form>
+        Name: <%= space.name %><br>
+        Description: <%= space.description %><br>
+        Price: <%= "£%.2f" % space.price %><br>
+        Available Dates: <%= space.start_availability%><br>
+        Available Dates: <%= space.end_availability%><br>
+        Username: <%=space.user.username %><br>
 
-          </li>
-        <% end %>
+        <form action="/bookings/new" method="post">
+          <input type="hidden" name="space_id" value="<%= space.id %>">
+          <input type="submit" name="<%= space.id %>" value="Book now">
+        </form>
+
+      </li>
+    <% end %>
   <% end %>
 </ul>
