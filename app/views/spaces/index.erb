@@ -1,10 +1,10 @@
-<h1>Current Spaces available</h1>
+<h1>Current spaces available</h1>
 
 <ul>
   <form action="/spaces" method="get">
-    Displaying Spaces available on <%= @display_date %>, select another date:<br>
+    Displaying spaces available on <%= @display_date %>, select another date:<br>
     <input type="date" name="filter_date">
-    <button type="submit" id="filter_date" name="submit">Filter Date</button>
+    <button type="submit">Filter date</button>
   </form>
   <% @spaces.each do |space|
         space_bookings = @bookings.all(space_id: space.id) || []

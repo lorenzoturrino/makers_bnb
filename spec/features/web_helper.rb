@@ -17,7 +17,7 @@ def submit_signup_form(name,username,email,password,password_confirm)
   fill_in :email, with: email
   fill_in :password, with: password
   fill_in :password_confirm, with: password_confirm
-  click_button 'sign_up'
+  click_button 'Sign up'
 end
 
 def submit_new_space_form(name,description,price, date)
@@ -36,12 +36,12 @@ end
 def submit_login_form(email,password)
   fill_in :email , with: email
   fill_in :password , with: password
-  click_button 'sign_in'
+  click_button 'Sign in'
 end
 
 def submit_filter_form(date)
   fill_in :filter_date , with: date
-  click_button 'filter_date'
+  click_button 'Filter date'
 end
 
 

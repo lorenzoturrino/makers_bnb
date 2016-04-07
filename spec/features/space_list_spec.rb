@@ -1,8 +1,8 @@
-feature 'Main page:' do
+feature 'Space list:' do
 
   before :each do
-    host = db_create_user("dude","d@m.com","dude","dude_pass")
-    guest = db_create_user("bro","b@m.com","bro","bro_pass")
+    host = db_create_user("host","h@m.com","host","host_pass")
+    guest = db_create_user("renter","r@m.com","renter","renter_pass")
     space_one = db_create_space("first house","pretty",10.01,Date.parse("11 may 2016"),host.id)
     space_two = db_create_space("second house","nice",10.01,Date.parse("11 may 2016"),host.id)
     space_three = db_create_space("third house","awesome",10.01,Date.parse("12 may 2016"),host.id)
@@ -11,6 +11,7 @@ feature 'Main page:' do
     visit '/'
     click_button('Register')
     submit_signup_form("guest","guest","g@m.com","guest_pass","guest_pass")
+    visit('/spaces')
   end
 
   scenario 'shows all non booked spaces by default' do
@@ -20,7 +21,7 @@ feature 'Main page:' do
   end
 
   scenario 'shows the name of the hosts along listings' do
-    expect(page).to have_content("dude")
+    expect(page).to have_content("host")
   end
 
   scenario 'shows all available spaces on a given day' do
