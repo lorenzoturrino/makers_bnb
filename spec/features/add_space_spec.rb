@@ -1,15 +1,18 @@
-feature 'Add space' do
-  let(:name){'MY SPACE'}
-  let(:description){'description'}
-  let(:price){'12.11'}
-  let(:date){'2016-05-01'}
+feature 'Add space form:' do
+  let(:name){'first house'}
+  let(:description){'pretty'}
+  let(:price){'10.01'}
+  let(:date){'2016-05-11'}
 
   before :each do
-    named_signup
-    visit '/spaces/new'
+    visit '/'
+    click_button('Register')
+    submit_signup_form("host","host","h@m.com","host_pass","host_pass")
+    visit('/spaces')
   end
 
-  scenario 'to table' do
+  scenario 'new space gets listed on the main page' do
+    click_button 'create_space'
     fill_in :space_name, with: name
     fill_in :space_description, with: description
     fill_in :space_price, with: price

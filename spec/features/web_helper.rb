@@ -1,3 +1,51 @@
+def db_create_user(name,email,username,pass)
+  User.create(name: name, email: email, username: username, password: pass, password_confirmation: pass)
+end
+
+def db_create_space(name,description,price,date,user_id)
+  Space.create(name: name, description: description, price: price, available_date: date, user_id: user_id)
+end
+
+def db_create_booking(space_id,host_id,guest_id,status,date,bill)
+  Booking.create(space_id: space_id, host_id: host_id, guest_id: guest_id, status: status, date_requested: date, total_price: bill)
+end
+
+
+def submit_signup_form(name,username,email,password,password_confirm)
+  fill_in :name, with: name
+  fill_in :username, with: username
+  fill_in :email, with: email
+  fill_in :password, with: password
+  fill_in :password_confirm, with: password_confirm
+  click_button 'Sign up'
+end
+
+def submit_new_space_form(name,description,price, date)
+  fill_in :space_name, with: name
+  fill_in :space_description, with: description
+  fill_in :space_price, with: price
+  fill_in :space_availability, with: date
+  click_button 'Submit'
+end
+
+def submit_booking_form(date)
+  fill_in :date_requested, with: date
+  click_button 'Submit'
+end
+
+def submit_login_form(email,password)
+  fill_in :email , with: email
+  fill_in :password , with: password
+  click_button 'Sign in'
+end
+
+def submit_filter_form(date)
+  fill_in :filter_date , with: date
+  click_button 'Filter date'
+end
+
+
+
 def signup(name=nil, username=nil, email=nil, password=nil, password_confirm = nil)
   visit('/')
   fill_in(:name, with: name)
@@ -13,46 +61,9 @@ def named_signup
   "1234", "1234")
 end
 
-def create_a_space
-  visit '/spaces/new'
-  fill_in :space_name, with: 'MY SPACE'
-  fill_in :space_description, with: 'this is a description and also myspace is alive'
-  fill_in :space_price, with: "10.22"
-  fill_in :space_availability, with: "2016-05-01"
-  click_button 'Submit'
-end
-
 def signin(email=nil, password=nil)
   visit('/session/new')
   fill_in(:email, with: email)
   fill_in(:password, with: password)
   click_button('Sign in')
-end
-
-def create_database_space(name,description,price,date)
-  new_space = Space.new(name: name, description: description, price: price.to_f, available_date: Date.parse(date))
-  new_user = User.create(name: "town", email:"town@girl.com",
-  username:"town_girl", password_hash:"1234")
-  new_space.user = new_user
-  new_space.save
-end
-
-def create_booking
-  named_signup
-  create_a_space
-  click_button 'Book now'
-  fill_in :date_requested, with: '01/01/2016'
-  click_button 'Submit'
-end
-
-def db_create_user(name,email,username,pass)
-  User.create(name: name, email: email, username: username, password: pass, password_confirmation: pass)
-end
-
-def db_create_space(name,description,price,date,user_id)
-  Space.create(name: name, description: description, price: price, available_date: date, user_id: user_id)
-end
-
-def db_create_booking(space_id,host_id,guest_id,status,date,bill)
-  Booking.create(space_id: space_id, host_id: host_id, guest_id: guest_id, status: status, date_requested: date, total_price: bill)
 end
