@@ -12,7 +12,7 @@ feature 'Request Dashboard' do
 
   feature 'Host' do
     before :each do
-      signin(host1.name,1234)
+      signin(host1.email,1234)
       visit('requests')
     end
 
@@ -82,7 +82,7 @@ feature 'Request Dashboard' do
 
   feature 'Guest' do
     before :each do
-      signin(guest1.name,1234)
+      signin(guest1.email,1234)
       visit('requests')
     end
 
@@ -93,7 +93,7 @@ feature 'Request Dashboard' do
 
     scenario 'should see their own requests' do
       expect(page).to have_content('BigBen')
-      expect(page).to have_content('Guest')
+      expect(page).to have_content('Host1')
       expect(page).to have_content('Status: Pending')
       expect(page).to have_content('Date requested: 2016-05-12')
     end
