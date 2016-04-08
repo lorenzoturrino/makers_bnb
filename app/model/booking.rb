@@ -6,7 +6,6 @@ class Booking
   property :host_id, Integer
   property :guest_id, Integer
   property :status, String
-  property :date_requested, Date
   property :booking_start, Date
   property :booking_end, Date
   property :total_price, Float
