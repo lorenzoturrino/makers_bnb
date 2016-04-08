@@ -3,27 +3,29 @@
 <div class="flexbox">
   <section class="boxitem">
     <h2>Requests I've made</h2>
-      <% if @guest_requests.empty? %>
+      <% if @guest_requests.none? {|guest_request| guest_request.booking_start && guest_request.booking_end} %>
         <ul>
           <li>It seems like you haven't made any request yet</li>
         </ul>
       <% else %>
         <% @guest_requests.each do |guest_request| %>
-          <ul class="request">
+
             <% if guest_request.booking_start && guest_request.booking_end %>
+            <ul class="request">
               <li><strong>Property</strong> <%= Space.get(guest_request.space_id).name %> </li>
               <li><strong>Host</strong> <%= User.get(guest_request.host_id).name %> </li>
               <li><strong>Status</strong> <%= guest_request.status.capitalize %> </li>
               <li><strong>From</strong>  <%= guest_request.booking_start %> <strong>to</strong> <%= guest_request.booking_end %> </li>
+            </ul>
             <% end %>
-          </ul>
+
         <% end %>
       <% end %>
   </section>
 
   <section class="boxitem">
     <h2>Requests I've received</h2>
-      <% if @host_requests.empty? %>
+      <% if @host_requests.none? {|host_request| host_request.booking_start && host_request.booking_end} %>
         <ul>
           <li>It seems like you haven't received any request yet</li>
         </ul>
