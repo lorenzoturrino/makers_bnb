@@ -1,3 +1,6 @@
+<h1>Book a space</h1>
+
+<section>This is a description of the listings and is quite long check those out</section>
 
 <section>
   <form action='/spaces/new' method="get">
@@ -5,15 +8,11 @@
   </form>
 </section>
 
-<h1>Current spaces available</h1>
-
-  <form action="/spaces" method="get">
-    Filter by date <input type="date" name="filter_start" placeholder="<%@filter_date%>">
-    to <input type="date" name="filter_end" placeholder="<%@filter_date%>">
-    <button type="submit">Filter date</button>
-  </form>
-
-
+<form action="/spaces" method="get">
+  Filter by date <input type="date" name="filter_start" placeholder="<%@filter_date%>">
+  to <input type="date" name="filter_end" placeholder="<%@filter_date%>">
+  <button type="submit">Filter date</button>
+</form>
 
 <ul>
   <% @spaces.each do |space|
