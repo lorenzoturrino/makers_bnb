@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- move script to footer once calendar picker script is moved out of view -->
+    <script src="https://cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="<%=url('main.css')%>"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
     <title>TEMP TITLE SO AWESOME</title>
   </head>
   <body>
@@ -14,6 +19,9 @@
     <%=partial :flash%>
 </div>
     <%= yield %>
+
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
   </body>
 </html>
