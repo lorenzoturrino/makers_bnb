@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+    <script src="<%=url('interface.js')%>"></script>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
     <link rel="stylesheet" type="text/css" href="/main.css"/>
     <title>Makers BnB</title>
   </head>
+
   <body>
     <%=partial :navbar %>
     <%=partial :flash%>
     <div class="container">
       <%= yield %>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
   </body>
 </html>

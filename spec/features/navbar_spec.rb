@@ -103,9 +103,12 @@ feature 'Navbar' do
       expect(page).to have_button('Sign out')
     end
 
-    scenario 'New request page' do
+    scenario 'Request new booking page' do
+      host = db_create_user("host","h@m.com","host","host_pass")
+      space_one = db_create_space("January house", "pretty", 10.01, Date.parse("01/01/2016"), Date.parse("30/01/2016"), host.id, nil)
       named_signup
-      visit '/bookings/new'
+      visit '/spaces'
+      click_button 'Book now'
 
       expect(page).not_to have_button('Register')
       expect(page).not_to have_button('Log in')

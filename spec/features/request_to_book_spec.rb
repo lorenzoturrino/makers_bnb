@@ -21,8 +21,8 @@ feature 'Request space' do
 
   scenario 'A user can select a date for a new booking' do
     click_button('Book now')
-    fill_in(:booking_start, with: "11 May 2016")
-    fill_in(:booking_end, with: "12 May 2016")
+    find(:xpath, "//input[@id='booking_start']").set "11 May 2016"
+    find(:xpath, "//input[@id='booking_end']").set "12 May 2016"
     click_button('Submit')
     expect(page).to have_content("Request sent")
     expect(current_path).to eq('/spaces')
@@ -30,7 +30,9 @@ feature 'Request space' do
 
   scenario 'Request date gets parsed correctly' do
     click_button('Book now')
-    submit_booking_form("11 May 2016", "12 May 2016")
+    find(:xpath, "//input[@id='booking_start']").set "11 May 2016"
+    find(:xpath, "//input[@id='booking_end']").set "12 May 2016"
+    click_button "Submit Request"
     database_entry = Booking.first
     expect(database_entry.booking_start.to_s).to eq("2016-05-11")
     expect(database_entry.booking_end.to_s).to eq("2016-05-12")

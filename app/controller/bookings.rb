@@ -1,6 +1,15 @@
 class Bnb < Sinatra::Base
 
   get '/bookings/new' do
+    booked_dates = []
+    current_space = Space.get(Booking.get(session[:booking_id]).space_id)
+    current_space.bookings.each do |booking|
+      if booking.booking_start
+        booked_dates << get_date_range(booking.booking_start, booking.booking_end)
+      end
+    end
+    booked_dates.flatten
+    @booked_dates = booked_dates
     erb :'bookings/new'
   end
 
@@ -15,7 +24,7 @@ class Bnb < Sinatra::Base
     if booking
       session[:booking_id] = booking.id
     end
-    
+
     redirect 'bookings/new'
   end
 

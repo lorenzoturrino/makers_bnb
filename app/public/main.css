@@ -101,6 +101,7 @@ h2 {
   background-color: rgb(217, 83, 79);
 }
 
+<<<<<<< HEAD
 /* FORMS */
 
 .form {
@@ -166,5 +167,12 @@ h2 {
   padding: 20px;
   margin: 0 0 10px 0;
   background-color: rgb(255, 255, 255);
-  border-radius: .3em;
+  border-radius: .3em;}
+
+#reportrange {
+  background-color: #ffffff;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  display: inline-block;
 }
