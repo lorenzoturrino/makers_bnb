@@ -13,6 +13,10 @@ class Bnb < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
 
+    def current_path
+      request.path_info
+    end
+
     def get_date_range(start_date, end_date )
       (start_date..end_date).map {|date| date}
     end
