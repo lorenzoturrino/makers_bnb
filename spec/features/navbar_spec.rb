@@ -37,7 +37,7 @@ feature 'Navbar' do
       expect(page).to have_content('Requests')
     end
 
-    scenario 'Available spaces' do
+    scenario 'Spaces' do
 
     end
 
@@ -50,7 +50,7 @@ feature 'Navbar' do
 
       expect(page).not_to have_button('Register')
       expect(page).to have_button('Log in')
-      expect(page).not_to have_button('Available spaces')
+      expect(page).not_to have_button('Spaces')
       expect(page).not_to have_button('Check requests')
       expect(page).not_to have_button('Create space')
       expect(page).not_to have_button('Sign out')
@@ -61,7 +61,7 @@ feature 'Navbar' do
 
       expect(page).to have_button('Register')
       expect(page).not_to have_button('Log in')
-      expect(page).not_to have_button('Available spaces')
+      expect(page).not_to have_button('Spaces')
       expect(page).not_to have_button('Check requests')
       expect(page).not_to have_button('Create space')
       expect(page).not_to have_button('Sign out')
@@ -73,7 +73,7 @@ feature 'Navbar' do
 
       expect(page).not_to have_button('Register')
       expect(page).not_to have_button('Log in')
-      expect(page).not_to have_button('Available spaces')
+      expect(page).not_to have_button('Spaces')
       expect(page).to have_button('Check requests')
       expect(page).to have_button('Create space')
       expect(page).to have_button('Sign out')
@@ -85,7 +85,7 @@ feature 'Navbar' do
 
       expect(page).not_to have_button('Register')
       expect(page).not_to have_button('Log in')
-      expect(page).to have_button('Available spaces')
+      expect(page).to have_button('Spaces')
       expect(page).not_to have_button('Check requests')
       expect(page).to have_button('Create space')
       expect(page).to have_button('Sign out')
@@ -97,7 +97,7 @@ feature 'Navbar' do
 
       expect(page).not_to have_button('Register')
       expect(page).not_to have_button('Log in')
-      expect(page).to have_button('Available spaces')
+      expect(page).to have_button('Spaces')
       expect(page).to have_button('Check requests')
       expect(page).not_to have_button('Create space')
       expect(page).to have_button('Sign out')
@@ -109,7 +109,7 @@ feature 'Navbar' do
 
       expect(page).not_to have_button('Register')
       expect(page).not_to have_button('Log in')
-      expect(page).to have_button('Available spaces')
+      expect(page).to have_button('Spaces')
       expect(page).to have_button('Check requests')
       expect(page).not_to have_button('Create space')
       expect(page).to have_button('Sign out')
