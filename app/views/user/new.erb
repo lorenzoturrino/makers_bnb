@@ -1,10 +1,37 @@
 <h1>Register</h1>
 
-<form action='/user/new' method=post>
-  Name: <input type='text' name='name' value ='<%= @user.name %>' >
-  Usernamer: <input type='text' name='username' value='<%= @user.username %>' >
-  E-Mail: <input type='email' name='email' value='<%= @user.email%>' >
-  Password: <input type='password' name='password' required>
-  Confirm Password <input type='password' name='password_confirm' required>
-  <button type='submit'>Sign up</button>
+<form class="form" action='/user/new' method=post>
+  <fieldset>
+    <section>
+      <label for="name">Name</label>
+      <input type="text" name="name" value=""<%= @user.name %>" required>
+    </section>
+
+    <section>
+      <label for="username">Username</label>
+      <input type="text" name="username" value="<%= @user.username %>" required>
+    </section>
+
+    <section>
+      <label for="email">Email</label>
+      <input type="email" name="email" value="<%= @user.email%>" required>
+    </section>
+    <section>
+      <label for="password">Password</label>
+      <input type="password" name="password" required>
+    </section>
+
+    <section>
+      <label for="password_confirm">
+        Confirm password
+      </label>
+      <input type="password" name="password_confirm" required>
+    </section>
+  </fieldset>
+
+  <button class="btn" type="submit">Sign up</button>
+
+
+
+
 </form>
