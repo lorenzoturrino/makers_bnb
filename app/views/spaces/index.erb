@@ -1,34 +1,38 @@
+<h1>Book a space</h1>
 
+<section>This is a description of the listings and is quite long check those out</section>
 
-<h1>Current spaces available</h1>
-
-  <form action="/spaces" method="get">
-    Filter by date <input type="date" name="filter_start" placeholder="<%@filter_date%>">
-    to <input type="date" name="filter_end" placeholder="<%@filter_date%>">
-    <button type="submit">Filter date</button>
+<section>
+  <form action='/spaces/new' method="get">
+      <button type="submit">List a space</button>
   </form>
+</section>
 
-
+<form action="/spaces" method="get">
+  Filter by date <input type="date" name="filter_start" placeholder="<%@filter_date%>">
+  to <input type="date" name="filter_end" placeholder="<%@filter_date%>">
+  <button type="submit">Filter date</button>
+</form>
 
 <ul>
   <% @spaces.each do |space|
 
-        booked_dates = []  
-        space.bookings.each do |booking| 
+        booked_dates = []
+        space.bookings.each do |booking|
           if booking.booking_start
-            booked_dates += get_date_range(booking.booking_start, booking.booking_end) 
+            booked_dates += get_date_range(booking.booking_start, booking.booking_end)
           end
         end
 
         original_dates = get_date_range(space.start_availability, space.end_availability)
         available_dates = original_dates.reject{|date| booked_dates.include?(date)}
+        available = @filter_range ? @filter_range.all? {|date| available_dates.include? date} : true
 
-        available = @filter_range ? @filter_range.all? {|date| available_dates.include? date} : true  
     %>
 
      <% if available %>
       <li>
-     
+
         Name: <%= space.name %><br>
         Description: <%= space.description %><br>
         Price: <%= "£%.2f" % space.price %><br>

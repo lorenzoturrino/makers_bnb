@@ -7,14 +7,13 @@ feature 'Add space form:' do
 
   before :each do
     visit '/'
-    click_button('Register')
     submit_signup_form("host","host","h@m.com","host_pass","host_pass")
     visit('/spaces')
   end
 
 
   scenario 'new space gets listed in the space page' do
-    click_button 'Create space'
+    click_button 'List a space'
     fill_in :space_name, with: name
     fill_in :space_description, with: description
     fill_in :space_price, with: price
