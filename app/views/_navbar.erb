@@ -1,5 +1,6 @@
 <nav class="navbar flexbox">
   <% if current_user %>
+
     <section class="navbar-welcome">
       Welcome <%= current_user.name %>
     </section>
@@ -7,21 +8,21 @@
     <section>
 
       <% unless current_path == '/spaces' %>
-      <form action='/spaces' method="get">
+        <form action='/spaces' method="get">
           <button type="submit">Spaces</button>
-      </form>
+        </form>
       <%end%>
 
       <% if current_path == '/spaces' || current_path == '/requests' %>
-      <form action='/spaces/new' method="get">
-          <button type="submit">Create space</button>
-      </form>
+        <form action='/spaces/new' method="get">
+            <button type="submit">Create space</button>
+        </form>
       <%end%>
 
       <% unless current_path == '/requests' %>
-      <form action='/requests'>
-        <button type="submit">Check requests</button>
-      </form>
+        <form action='/requests'>
+          <button type="submit">Check requests</button>
+        </form>
       <%end%>
 
       <form action='/session' method="post">
@@ -30,25 +31,26 @@
       </form>
 
   <%else%>
-  <section class="navbar-welcome">
-    Makers BnB
-  </section>
-    <section class="navbar-nav">
 
-      <% unless current_path == '/session/new' %>
-        <form action='/session/new'>
-        <button type="submit">Log in</button>
-        </form>
-      <%end%>
+    <section class="navbar-welcome">
+      Makers BnB
+    </section>
+      <section class="navbar-nav">
 
-      <% unless current_path == '/user/new' %>
-        <form action='/user/new'>
-        <button type="submit">Register</button>
-        </form>
-       <%end%>
+        <% unless current_path == '/session/new' %>
+          <form action='/session/new'>
+          <button type="submit">Log in</button>
+          </form>
+        <%end%>
+
+        <% unless current_path == '/user/new' %>
+          <form action='/user/new'>
+          <button type="submit">Register</button>
+          </form>
+        <%end%>
 
   <%end%>
-</section>
 
+    </section>
 
 </nav>
