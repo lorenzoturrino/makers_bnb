@@ -12,7 +12,7 @@ feature 'Add space form:' do
   end
 
   scenario 'new space gets listed on the main page' do
-    click_button 'create_space'
+    click_button 'Create space'
     fill_in :space_name, with: name
     fill_in :space_description, with: description
     fill_in :space_price, with: price

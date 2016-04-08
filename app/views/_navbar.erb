@@ -1,13 +1,17 @@
 <% if current_user %>
    Welcome <%= current_user.name %>
 
+    <form action='/spaces/new' method="get">
+        <button type="submit">Create space</button>
+    </form>
+
+    <form action='/requests'>
+      <button type="submit">Check requests</button>
+    </form>
+
     <form action='/session' method="post">
       <input type='hidden' name='_method' value='delete'>
       <button type="submit">Sign out</button>
-    </form>
-
-    <form action='/spaces/new' method="get">
-        <button type="submit" id="create_space">Create space</button>
     </form>
 
   <%else%>
