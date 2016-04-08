@@ -6,11 +6,16 @@ feature 'Request Dashboard' do
   let(:host2) { User.create(name: 'Host2', username: 'Host2', email: 'host2@me.com', password: 1234, password_confirmation: 1234) }
   let(:host3) { User.create(name: 'Host3', username: 'Host3', email: 'host3@me.com', password: 1234, password_confirmation: 1234) }
 
-  let(:space1) { Space.create(name: 'BigBen', description: 'Big bell in London', price: 250, user: host1) }
-  let(:space2) { Space.create(name: 'The Rizz', description: 'In paris. La vie!', price: 250, user: host2) }
+  let(:space1) { Space.create(name: 'BigBen', description: 'Big bell in London', price: 250, user: host1, start_availability: '12/04/2016', end_availability: '30/09/2015') }
+  let(:space2) { Space.create(name: 'The Rizz', description: 'In paris. La vie!', price: 250, user: host2, start_availability: '12/04/2016', end_availability: '30/09/2015')}
 
-  let!(:booking) { Booking.create(space_id: space1.id, host_id: host1.id, guest_id: guest1.id, status: 'Pending', date_requested: '12/05/2016', total_price: 250) }
-  let!(:booking2) { Booking.create(space_id: space2.id, host_id: host2.id, guest_id: guest1.id, status: 'Pending', date_requested: '12/05/2016', total_price: 250) }
+  let!(:booking) { Booking.create(space_id: space1.id, host_id: host1.id, guest_id: guest1.id, status: 'Pending', booking_start: '12/05/2016', booking_end: '16/05/2016', total_price: 250) }
+  let!(:booking2) { Booking.create(space_id: space2.id, host_id: host2.id, guest_id: guest1.id, status: 'Pending', booking_start: '12/05/2016', booking_end: '16/05/2016', total_price: 250) }
+
+  before :each do
+    signin('Anne',1234)
+    visit 'requests'
+  end
 
   feature 'Host' do
     before :each do
@@ -27,7 +32,8 @@ feature 'Request Dashboard' do
       expect(page).to have_content('BigBen')
       expect(page).to have_content('Guest')
       expect(page).to have_content('Status: Pending')
-      expect(page).to have_content('Date requested: 2016-05-12')
+      expect(page).to have_content('Requested from: 2016-05-12')
+      expect(page).to have_content('until 2016-05-16')
       expect(page).not_to have_content('The Rizz')
       expect(page).not_to have_content('In paris. La vie!')
     end
@@ -36,7 +42,8 @@ feature 'Request Dashboard' do
       expect(page).to have_content('BigBen')
       expect(page).to have_content('Guest')
       expect(page).to have_content('Status: Pending')
-      expect(page).to have_content('Date requested: 2016-05-12')
+      expect(page).to have_content('Requested from: 2016-05-12')
+      expect(page).to have_content('until 2016-05-16')
     end
 
     scenario 'can confirm guest request' do
@@ -104,7 +111,7 @@ feature 'Request Dashboard' do
       expect(page).to have_content('BigBen')
       expect(page).to have_content('Host1')
       expect(page).to have_content('Status: Pending')
-      expect(page).to have_content('Date requested: 2016-05-12')
+      expect(page).to have_content('2016-05-12'&&'2016-05-16')
     end
 
     scenario 'should display message if no requests have been made' do

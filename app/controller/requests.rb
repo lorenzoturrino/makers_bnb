@@ -1,5 +1,7 @@
 class Bnb < Sinatra::Base
   get '/requests' do
+    #puts "Lets see the bookings @ request cont"
+    #p Booking.all
     @host_requests = Booking.all(host_id: session[:user_id])
     @guest_requests = Booking.all(guest_id: session[:user_id])
     erb :requests
@@ -10,6 +12,7 @@ class Bnb < Sinatra::Base
       booking = Booking.get(params[:host_request_id])
       booking.status = 'confirmed'
       booking.save
+
       flash.keep[:notice] = "Space request confirmed :)"
       redirect('/requests')
     else
