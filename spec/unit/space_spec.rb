@@ -1,5 +1,3 @@
-require './app/model/space.rb'
-
 describe Space do
   let(:host) { User.create(name: 'Anne', username: 'Anne', email: 'anne@me.com', password: 1234, password_confirmation: 1234) }
 
