@@ -4,8 +4,8 @@ feature 'Request Dashboard' do
   let(:host) { User.create(name: 'Anne', username: 'Anne', email: 'anne@me.com', password: 1234, password_confirmation: 1234) }
   let(:host2) { User.create(name: 'Not Anne', username: 'Not Anne', email: 'not-anne@me.com', password: 1234, password_confirmation: 1234)}
 
-  let(:space) { Space.create(name: 'BigBen', description: 'Big bell in London', price: 250, user: host , booked_dates: nil) }
-  let(:space2) { Space.create(name: 'The Rizz', description: 'In paris. La vie!', price: 250, user: host2, booked_dates: nil)}
+  let(:space) { Space.create(name: 'BigBen', description: 'Big bell in London', price: 250, user: host , start_availability: '12/04/2016', end_availability: '30/09/2015') }
+  let(:space2) { Space.create(name: 'The Rizz', description: 'In paris. La vie!', price: 250, user: host2, start_availability: '12/04/2016', end_availability: '30/09/2015')}
 
   let!(:booking) { Booking.create(space_id: space.id, host_id: host.id, guest_id: guest.id, status: 'Pending', booking_start: '12/05/2016', booking_end: '13/05/2016', total_price: 250) }
   let!(:booking2) { Booking.create(space_id: space2.id, host_id: host2.id, guest_id: guest.id, status: 'Pending', booking_start: '12/05/2016', booking_end: '13/05/2016', total_price: 250) }

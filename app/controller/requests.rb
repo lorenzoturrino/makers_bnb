@@ -1,5 +1,7 @@
 class Bnb < Sinatra::Base
   get '/requests' do
+    #puts "Lets see the bookings @ request cont"
+    #p Booking.all
     @host_requests = Booking.all(host_id: session[:user_id])
     erb :requests
   end
