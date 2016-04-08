@@ -91,3 +91,13 @@ h1 {
 .error {
   background-color: rgb(217, 83, 79);
 }
+
+/* CALENDAR PICKER */
+
+#reportrange{
+  background-color: #ffffff;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
