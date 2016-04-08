@@ -1,7 +1,7 @@
 class Bnb < Sinatra::Base
   get '/requests' do
-    puts @host_requests = Booking.all(host_id: session[:user_id])
-    puts @guest_requests = Booking.all(guest_id: session[:user_id])
+    @host_requests = Booking.all(host_id: session[:user_id])
+    @guest_requests = Booking.all(guest_id: session[:user_id])
     erb(:'/requests/index')
   end
 
