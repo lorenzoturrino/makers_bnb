@@ -13,21 +13,21 @@
 <ul>
   <% @spaces.each do |space|
 
-        booked_dates = []  
+        booked_dates = []
         space.bookings.each {|booking| booked_dates << get_date_range(booking.booking_start, booking.booking_end) }
-        
+
         original_dates = get_date_range(space.start_availability, space.end_availability)
         available_dates = original_dates.reject{|date| booked_dates.include?(date)}
 
 
         available = @filter_range ? @filter_range.all? {|date| !available_dates.include? date} : true
-    
-  
+
+
     %>
 
      <% if available %>
       <li>
-     
+
         Name: <%= space.name %><br>
         Description: <%= space.description %><br>
         Price: <%= "£%.2f" % space.price %><br>

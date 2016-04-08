@@ -1,0 +1,7 @@
+#reportrange{
+  background-color: #ffffff;
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  display: inline-block;
+}

@@ -3,54 +3,13 @@
 <form action="/bookings" method="post">
   <input id="booking_start" type="hidden" name="booking_start">
   <input id="booking_end" type="hidden" name="booking_end">
-  <div id="reportrange" class="text-center">
+  <div id="reportrange">
       <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
       <span></span> <b class="caret"></b>
   </div>
   <button type="submit">Submit Request</button>
 </form>
 
-<style>
-  #reportrange{
-    background-color: #ffffff;
-    padding: 5px 10px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    width: 30%;
-  }
-</style>
-
 <script>
-$(document).ready(function(){
-    $(function() {
-
-        function cb(start, end) {
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-            $('input[name="booking_start"]').val(start.format('YYYY-MM-DD'));
-            $('input[name="booking_end"]').val(end.format('YYYY-MM-DD'));
-            console.log("this is the start date")
-            console.log(start.format('MMMM D, YYYY'))
-        }
-        cb(moment().subtract(29, 'days'), moment());
-
-        $('#reportrange').daterangepicker({
-            "locale": {
-                "format": "DD/MM/YYYY",
-                "separator": " - ",
-                "applyLabel": "Select dates",
-                "cancelLabel": "Clear"
-            },
-        		"isInvalidDate": function(date){
-            var test_date = date._d.getTime();
-            var blocked_date = (new Date(Date.parse("2016-01-04"))).getTime();
-            	if(test_date === blocked_date) {
-              	return true;
-              }
-              	console.log(test_date)
-                console.log(blocked_date)
-          },
-          }, cb);
-
-    });
-  });
+  var booked_dates = <%= @booked_dates = @booked_dates.flatten.map { |date| date.strftime("%Y-%m-%d") } %>
 </script>

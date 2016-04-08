@@ -17,7 +17,7 @@ class Bnb < Sinatra::Base
 
       flash.keep[:notice] = "Space request confirmed :)"
       redirect('/requests')
-    else 
+    else
       booking = Booking.get(params[:host_request_id])
       booking.status = 'declined'
       booking.save
