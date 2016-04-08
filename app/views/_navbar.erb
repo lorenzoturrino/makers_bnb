@@ -1,9 +1,10 @@
-<nav class="navbar">
+<nav class="navbar flexbox">
+
   <% if current_user %>
     <section class="navbar-welcome">
       Welcome <%= current_user.name %>
     </section>
-    
+
     <section>
       <form action='/session' method="post">
         <input type='hidden' name='_method' value='delete'>
@@ -13,6 +14,9 @@
           <button type="submit" id="create_space">Create space</button>
       </form>
   <%else%>
+  <section class="navbar-welcome">
+    Makers BnB
+  </section>
     <section class="navbar-nav">
      <form action='/session/new'>
        <button type="submit">Log in</button>

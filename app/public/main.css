@@ -1,15 +1,49 @@
 body {
-  font-family: Arial, sans-serif;
+  top: 80px;
+  position: relative;
+  font-family: 'Cardo', serif;
   font-size: 1em;
+  background-color: rgb(255, 255, 255);
+  line-height: 1.6em;
+  font-family: 'Cardo', serif;
 }
 
-.navbar {
-  background-color: yellow;
-  height: 80px;
+.container {
+  padding: 20px;
+}
+
+.flexbox {
   display: flex;
+}
+
+/* HEADERS */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  margin: 15px 0;
+}
+
+
+h1 {
+  font-size: 2em;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+  font-family: 'Montserrat', sans-serif;
+  position: fixed;
+  width: 100%;
+  background-color: rgb(218, 229, 251);
+  height: 80px;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  -webkit-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.41);
+  -moz-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.41);
+  box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.41);
+
 }
 
 .navbar-welcome {
@@ -23,7 +57,37 @@ body {
 }
 
 .navbar button {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.4em;
   padding: 5px;
-  margin: 0 20px 0 0;;
+  margin: 0 20px 0 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.navbar button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* FLASHES */
+
+.notice, .error {
+  position: relative;
+  margin: 0 auto;
+  top: 25px;
+  padding: 5px;
+  background-color: yellow;
+  color: rgb(255, 255, 255);
+  border-radius: .25em;
+  font-family: 'Montserrat', serif;
+  font-size: 0.8em;
+}
+
+.notice {
+  background-color: rgb(92, 184, 92);
+}
+
+.error {
+  background-color: rgb(217, 83, 79);
 }
