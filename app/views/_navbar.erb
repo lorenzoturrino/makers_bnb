@@ -1,34 +1,50 @@
 <nav class="navbar flexbox">
   <% if current_user %>
+
     <section class="navbar-welcome">
       Welcome <%= current_user.name %>
     </section>
 
     <section>
-      <form action='/spaces/new' method="get">
-          <button type="submit">Create space</button>
-      </form>
-      <form action='/requests'>
-        <button type="submit">Check requests</button>
-      </form>
+
+      <% unless current_path == '/spaces' %>
+        <form action='/spaces' method="get">
+          <button type="submit">Spaces</button>
+        </form>
+      <%end%>
+
+      <% unless current_path == '/requests' %>
+        <form action='/requests'>
+          <button type="submit">Requests</button>
+        </form>
+      <%end%>
+
       <form action='/session' method="post">
         <input type='hidden' name='_method' value='delete'>
         <button type="submit">Sign out</button>
       </form>
+
   <%else%>
-  <section class="navbar-welcome">
-    Makers BnB
-  </section>
-    <section class="navbar-nav">
-     <form action='/session/new'>
-       <button type="submit">Log in</button>
-     </form>
 
-     <form action='/user/new'>
-       <button type="submit">Register</button>
-     </form>
+    <section class="navbar-welcome">
+      Makers BnB
+    </section>
+      <section class="navbar-nav">
+
+        <% unless current_path == '/session/new' %>
+          <form action='/session/new'>
+          <button type="submit">Log in</button>
+          </form>
+        <%end%>
+
+        <% unless current_path == '/user/new' %>
+          <form action='/user/new'>
+          <button type="submit">Register</button>
+          </form>
+        <%end%>
+
   <%end%>
-</section>
 
+    </section>
 
 </nav>
