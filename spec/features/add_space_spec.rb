@@ -7,7 +7,6 @@ feature 'Add space form:' do
 
   before :each do
     visit '/'
-    click_button('Register')
     submit_signup_form("host","host","h@m.com","host_pass","host_pass")
     visit('/spaces')
   end

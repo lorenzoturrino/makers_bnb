@@ -16,7 +16,6 @@ feature 'Space list:' do
     db_create_booking(space_four.id,host.id,guest.id,"confirmed",Date.parse("05/04/2016"),Date.parse("13/04/2016"),15.22)
 
     visit '/'
-    click_button('Register')
     submit_signup_form("guest","guest","g@m.com","guest_pass","guest_pass")
     visit('/spaces')
   end
