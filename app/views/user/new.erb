@@ -4,7 +4,7 @@
   <fieldset>
     <section>
       <label for="name">Name</label>
-      <input type="text" name="name" value=""<%= @user.name %>" required>
+      <input type="text" name="name" value="<%= @user.name %>" required>
     </section>
 
     <section>
@@ -27,11 +27,6 @@
       </label>
       <input type="password" name="password_confirm" required>
     </section>
+    <button class="btn" type="submit">Sign up</button>
   </fieldset>
-
-  <button class="btn" type="submit">Sign up</button>
-
-
-
-
 </form>
