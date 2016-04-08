@@ -31,9 +31,9 @@ feature 'Request Dashboard' do
     scenario 'should only see requests for their own spaces' do
       expect(page).to have_content('BigBen')
       expect(page).to have_content('Guest')
-      expect(page).to have_content('Status: Pending')
-      expect(page).to have_content('Requested from: 2016-05-12')
-      expect(page).to have_content('until 2016-05-16')
+      expect(page).to have_content('Pending')
+      expect(page).to have_content('2016-05-12')
+      expect(page).to have_content('2016-05-16')
       expect(page).not_to have_content('The Rizz')
       expect(page).not_to have_content('In paris. La vie!')
     end
@@ -41,9 +41,9 @@ feature 'Request Dashboard' do
     scenario 'should receive new request on dashboard' do
       expect(page).to have_content('BigBen')
       expect(page).to have_content('Guest')
-      expect(page).to have_content('Status: Pending')
-      expect(page).to have_content('Requested from: 2016-05-12')
-      expect(page).to have_content('until 2016-05-16')
+      expect(page).to have_content('Pending')
+      expect(page).to have_content('2016-05-12')
+      expect(page).to have_content('2016-05-16')
     end
 
     scenario 'can confirm guest request' do
@@ -53,13 +53,13 @@ feature 'Request Dashboard' do
     scenario 'sees a confirmation flash after clicking confirm' do
       click_button 'Confirm'
       expect(current_path).to eq '/requests'
-      expect(page).to have_content 'Space request confirmed :)'
+      expect(page).to have_content 'Space request confirmed'
     end
 
     scenario 'changes status of booking request from pending to confirmed' do
       click_button 'Confirm'
-      expect(page).to have_content 'Status: Confirmed'
-      expect(page).not_to have_content 'Status: Pending'
+      expect(page).to have_content 'Confirmed'
+      expect(page).not_to have_content 'Pending'
     end
 
     scenario 'should not see confirm or decline button once booking status is confirmed' do
@@ -74,13 +74,13 @@ feature 'Request Dashboard' do
     scenario 'sees a declined flash after clicking decline' do
       click_button 'Decline'
       expect(current_path).to eq '/requests'
-      expect(page).to have_content 'Space request was declined :('
+      expect(page).to have_content 'Space request was declined'
     end
 
     scenario 'changes status of booking request from pending to declined' do
       click_button 'Decline'
-      expect(page).to have_content 'Status: Declined'
-      expect(page).not_to have_content 'Status: Pending'
+      expect(page).to have_content 'Declined'
+      expect(page).not_to have_content 'Pending'
     end
 
     scenario 'should not see confirm or decline button once booking status is confirmed' do
@@ -110,7 +110,7 @@ feature 'Request Dashboard' do
     scenario 'should see their own requests' do
       expect(page).to have_content('BigBen')
       expect(page).to have_content('Host1')
-      expect(page).to have_content('Status: Pending')
+      expect(page).to have_content('Pending')
       expect(page).to have_content('2016-05-12'&&'2016-05-16')
     end
 
