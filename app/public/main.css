@@ -3,7 +3,7 @@ body {
   position: relative;
   font-family: 'Cardo', serif;
   font-size: 1em;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(242, 242, 242);
   line-height: 1.6em;
   font-family: 'Cardo', serif;
   color: rgb(119, 119, 119);
@@ -13,13 +13,14 @@ body {
   padding: 20px;
 }
 
-.flexbox {
-  display: flex;
-}
+/* TEXT STYLING */
+strong {
+  font-weight: 600;
 
+}
 /* HEADERS */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, strong, em {
   font-family: 'Montserrat', sans-serif;
   margin: 15px 0;
   color: rgb(75, 75, 75);
@@ -30,13 +31,18 @@ h1 {
   font-size: 2em;
 }
 
+h2 {
+  font-size: 1.6em;
+}
+
 
 /* NAVBAR */
 
 .navbar {
   font-family: 'Montserrat', sans-serif;
-  color: rgb(75, 75, 75);
+  color: black;
   position: fixed;
+  z-index: 9999;
   width: 100%;
   background-color: rgb(218, 229, 251);
   height: 80px;
@@ -130,4 +136,35 @@ h1 {
   background-color: rgb(218, 229, 251);
   border: 0px;
   color: rgb(75, 75, 75);
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+
+/*-------------- CONTENT --------------*/
+/* REQUESTS */
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+
+}
+
+.inline {
+  display: inline;
+}
+
+.boxitem {
+  margin: 20px;
+  width: 30%;
+  padding: 25px;
+}
+
+.request {
+  padding: 20px;
+  margin: 0 0 10px 0;
+  background-color: rgb(255, 255, 255);
+  border-radius: .3em;
 }
