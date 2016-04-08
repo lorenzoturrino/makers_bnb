@@ -1,11 +1,18 @@
-<% if  flash[:notice]%>
-      <%= flash[:notice]%>
-    <%end%>
+<section class="flexbox">
+  <% if  flash[:notice]%>
+     <aside class="notice">
+       <%= flash[:notice]%>
+     </aside>
+   <%end%>
 
-    <% if  flash[:errors]%>
-      <ul>
-        <% flash[:errors].each do |error| %>
-          <li><%=error%></li>
-        <% end %>
-      </ul>
-    <%end%>
+   <% if  flash[:errors]%>
+     <aside class="error">
+       <ul>
+         <% flash[:errors].each do |error| %>
+           <li><%=error%></li>
+         <% end %>
+       </ul>
+     </aside>
+   <%end%>
+
+</section>

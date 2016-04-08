@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="<%=url('main.css')%>"/>
-    <title>TEMP TITLE SO AWESOME</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/main.css"/>
+    <title>Makers BnB</title>
   </head>
   <body>
-
-
-  <div id="navbar">
     <%=partial :navbar %>
-  </div>
-  <div id="peeps">
     <%=partial :flash%>
-</div>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
 
   </body>
 </html>
