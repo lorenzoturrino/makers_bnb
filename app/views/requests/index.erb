@@ -1,0 +1,56 @@
+<h1>Requests</h1>
+
+<div class="flexbox">
+  <section class="boxitem">
+    <h2>Requests I've made</h2>
+      <% if @guest_requests.empty? %>
+        <ul>
+          <li>It seems like you haven't made any request yet</li>
+        </ul>
+      <% else %>
+        <% @guest_requests.each do |guest_request| %>
+          <ul class="request">
+            <% if guest_request.booking_start && guest_request.booking_end %>
+              <li><strong>Property</strong> <%= Space.get(guest_request.space_id).name %> </li>
+              <li><strong>Host</strong> <%= User.get(guest_request.host_id).name %> </li>
+              <li><strong>Status</strong> <%= guest_request.status.capitalize %> </li>
+              <li><strong>From</strong>  <%= guest_request.booking_start %> <strong>to</strong> <%= guest_request.booking_end %> </li>
+            <% end %>
+          </ul>
+        <% end %>
+      <% end %>
+  </section>
+
+  <section class="boxitem">
+    <h2>Requests I've received</h2>
+      <% if @host_requests.empty? %>
+        <ul>
+          <li>It seems like you haven't received any request yet</li>
+        </ul>
+      <% else %>
+        <% @host_requests.each do |host_request| %>
+          <% if host_request.booking_start && host_request.booking_end %>
+            <ul class="request">
+              <li><strong>Property</strong> <%= Space.get(host_request.space_id).name %> </li>
+              <li><strong>Guest</strong> <%= User.get(host_request.guest_id).name %> </li>
+              <li><strong>Status</strong> <%= host_request.status.capitalize %> </li>
+              <li><strong>From</strong> <%= host_request.booking_start %> <strong>to</strong> <%= host_request.booking_end %></li>
+              <% unless (host_request.status == 'confirmed') || (host_request.status == 'declined') %>
+              <li class="flexbox">
+                <form class="inline" action="/requests" method="post">
+                  <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
+                  <button class="btn" type="submit" name="confirmed" value="true">Confirm</button>
+                </form>
+                <form class="inline" action="/requests" method="post">
+                  <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
+                  <button class="btn" type="submit" name="declined" value="false">Decline</button>
+                </form>
+              </li>
+              <% end %>
+            </ul>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  </section>
+</div>
