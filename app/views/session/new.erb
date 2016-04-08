@@ -1,6 +1,14 @@
 <h1>Log in</h1>
-<form action='/session/new' method ='post'>
-  E-Mail: <input type='email' name='email'>
-  Password: <input type='password' name='password'>
-  <button type='submit'>Sign in</button>
+<form class="form" action='/session/new' method ='post'>
+  <fieldset>
+    <section>
+      <label for="email">Email</label>
+      <input type="email" name="email" required>
+    </section>
+    <section>
+      <label for="password">Password</label>
+      <input type="password" name="password" required>
+    </section>
+    <button class="btn" type="submit">Sign in</button>
+  </fieldset>
 </form>
