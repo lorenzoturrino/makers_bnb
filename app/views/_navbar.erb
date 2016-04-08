@@ -13,12 +13,6 @@
         </form>
       <%end%>
 
-      <% if current_path == '/spaces' || current_path == '/requests' %>
-        <form action='/spaces/new' method="get">
-            <button type="submit">Create space</button>
-        </form>
-      <%end%>
-
       <% unless current_path == '/requests' %>
         <form action='/requests'>
           <button type="submit">Check requests</button>

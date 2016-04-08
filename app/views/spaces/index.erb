@@ -1,4 +1,9 @@
 
+<section>
+  <form action='/spaces/new' method="get">
+      <button type="submit">List a space</button>
+  </form>
+</section>
 
 <h1>Current spaces available</h1>
 
@@ -13,10 +18,10 @@
 <ul>
   <% @spaces.each do |space|
 
-        booked_dates = []  
-        space.bookings.each do |booking| 
+        booked_dates = []
+        space.bookings.each do |booking|
           if booking.booking_start
-            booked_dates += get_date_range(booking.booking_start, booking.booking_end) 
+            booked_dates += get_date_range(booking.booking_start, booking.booking_end)
           end
         end
 
@@ -24,12 +29,12 @@
         available_dates = original_dates.reject{|date| booked_dates.include?(date)}
 
 
-        available = @filter_range ? @filter_range.all? {|date| available_dates.include? date} : true  
+        available = @filter_range ? @filter_range.all? {|date| available_dates.include? date} : true
     %>
 
      <% if available %>
       <li>
-     
+
         Name: <%= space.name %><br>
         Description: <%= space.description %><br>
         Price: <%= "£%.2f" % space.price %><br>
