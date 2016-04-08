@@ -2,12 +2,12 @@ def db_create_user(name,email,username,pass)
   User.create(name: name, email: email, username: username, password: pass, password_confirmation: pass)
 end
 
-def db_create_space(name,description,price,date,user_id)
-  Space.create(name: name, description: description, price: price, available_date: date, user_id: user_id)
+def db_create_space(name,description,price,start_date, end_date,user_id, dates)
+  Space.create(name: name, description: description, price: price, start_availability: start_date, end_availability: end_date, user_id: user_id, booked_dates: dates)
 end
 
-def db_create_booking(space_id,host_id,guest_id,status,date,bill)
-  Booking.create(space_id: space_id, host_id: host_id, guest_id: guest_id, status: status, date_requested: date, total_price: bill)
+def db_create_booking(space_id,host_id,guest_id,status,start_date,end_date,bill)
+  Booking.create(space_id: space_id, host_id: host_id, guest_id: guest_id, status: status, booking_start: start_date, booking_end: end_date, total_price: bill)
 end
 
 
@@ -28,8 +28,9 @@ def submit_new_space_form(name,description,price, date)
   click_button 'Submit'
 end
 
-def submit_booking_form(date)
-  fill_in :date_requested, with: date
+def submit_booking_form(start_date, end_date)
+  fill_in :booking_start, with: start_date
+  fill_in :booking_end, with: end_date
   click_button 'Submit'
 end
 
@@ -39,8 +40,9 @@ def submit_login_form(email,password)
   click_button 'Sign in'
 end
 
-def submit_filter_form(date)
-  fill_in :filter_date , with: date
+def submit_filter_form(start_date, end_date)
+  fill_in :filter_start , with: start_date
+  fill_in :filter_end, with: end_date
   click_button 'Filter date'
 end
 

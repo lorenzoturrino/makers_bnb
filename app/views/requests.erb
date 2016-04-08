@@ -6,11 +6,11 @@
     <li>It seems like you haven't made any request yet</li>
   <% else %>
     <% @guest_requests.each do |guest_request| %>
-      <% if guest_request.date_requested%>
+      <% if guest_request.booking_start && guest_request.booking_end %>
         <li>Property name:  <%= Space.get(guest_request.space_id).name %> </li>
         <li>Host info:  <%= User.get(guest_request.host_id).name %> </li>
         <li>Status:  <%= guest_request.status.capitalize %> </li>
-        <li>Date requested:  <%= guest_request.date_requested %> </li>
+        <li>From  <%= guest_request.booking_start %> to <%= guest_request.booking_end %> </li>
       <% end %>
     <% end %>
   <% end %>
@@ -23,11 +23,11 @@
     <li>It seems like you haven't received any request yet</li>
   <% else %>
     <% @host_requests.each do |host_request| %>
-      <% if host_request.date_requested%>
+      <% if host_request.booking_start && host_request.booking_end %>
         <li>Property name:  <%= Space.get(host_request.space_id).name %> </li>
         <li>Guest info:  <%= User.get(host_request.guest_id).name %> </li>
         <li>Status:  <%= host_request.status.capitalize %> </li>
-        <li>Date requested:  <%= host_request.date_requested %> </li>
+        <li>Requested from:  <%= host_request.booking_start %> until <%= host_request.booking_end %>  </li>
         <% unless (host_request.status == 'confirmed') || (host_request.status == 'declined') %>
           <li>
             <form action="/requests" method="post">
