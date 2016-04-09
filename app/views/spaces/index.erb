@@ -1,20 +1,20 @@
 <h1>Book a space</h1>
 
-<section>This is a description of the listings and is quite long check those out</section>
-
-<section>
+<section class="intro">
+  <p>This is a description of the listings and is quite long check those out</p>
   <form action='/spaces/new' method="get">
-      <button type="submit">List a space</button>
+      <button class="btn" type="submit">List a space</button>
   </form>
 </section>
 
-<form action="/spaces" method="get">
-  Filter by date <input type="date" name="filter_start" placeholder="<%@filter_date%>">
-  to <input type="date" name="filter_end" placeholder="<%@filter_date%>">
-  <button type="submit">Filter date</button>
+<form id="date-filter" action="/spaces" method="get">
+  <p>Filter by date</p>
+  <p><input type="date" name="filter_start" placeholder="<%@filter_date%>">
+  to <input type="date" name="filter_end" placeholder="<%@filter_date%>"></p>
+  <button class="btn" type="submit">Filter date</button>
 </form>
 
-<ul>
+<ul id="space-container">
   <% @spaces.each do |space|
 
         booked_dates = []
@@ -30,18 +30,18 @@
     %>
 
      <% if available %>
-      <li>
+      <li id="space-listing">
 
-        Name: <%= space.name %><br>
+        <p>Name: <%= space.name %><br>
         Description: <%= space.description %><br>
         Price: <%= "£%.2f" % space.price %><br>
         Available Dates: <%= space.start_availability%><br>
         Available Dates: <%= space.end_availability%><br>
-        Username: <%=space.user.username %><br>
+        Username: <%=space.user.username %><br></p>
 
         <form action="/bookings/new" method="post">
           <input type="hidden" name="space_id" value="<%= space.id %>">
-          <input type="submit" name="<%= space.id %>" value="Book now">
+          <input class="btn" type="submit" name="<%= space.id %>" value="Book now">
         </form>
 
       </li>
