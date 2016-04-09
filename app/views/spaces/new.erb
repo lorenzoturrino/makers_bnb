@@ -1,12 +1,35 @@
-New space
+<h1>Add a space</h1>
 
-<form action="/spaces/new" method="post">
-  <input type="text" name="space_name" placeholder="Enter name">
-  <input type="text" name="space_description" placeholder="Enter description">
-  <input type="text" name="space_price" placeholder="Enter price in £">
+<form class="form" action="/spaces/new" method="post">
+  <fieldset>
+    <label for="info">General info</label>
+    <section>
+      <label for="name">Name</label>
+      <input type="text" name="space_name" placeholder="Enter name">
+    </section>
 
-  <label>Please enter the date your space is available</label>
-  <input type="text" name="start_availability" placeholder="01/06/2016">
-  <input type="text" name="end_availability" placeholder="31/08/2016">
-  <button type="submit">Submit</button>
+    <section>
+      <label for="description">Description</label>
+      <input type="text" name="space_description" placeholder="Enter description">
+    </section>
+
+    <section>
+      <label for="price">Price</label>
+      <input type="text" name="space_price" placeholder="Enter price in £">
+    </section>
+
+    <label for="availability">Availability</label>
+
+    <section>
+      <label>Start date</label>
+      <input type="text" name="start_availability" placeholder="01/06/2016">
+    </section>
+
+    <section>
+      <label>End date</label>
+      <input type="text" name="end_availability" placeholder="31/08/2016">
+    </section>
+
+    <button class="btn" type="submit">Submit</button>
+  </fieldset>
 </form>

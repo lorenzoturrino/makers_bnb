@@ -27,7 +27,7 @@ feature 'Navbar' do
       named_signup
       click_button('List a space')
       expect(current_path).to eq('/spaces/new')
-      expect(page).to have_content('New space')
+      expect(page).to have_content('Add a space')
     end
 
     scenario 'Requests' do
@@ -36,12 +36,6 @@ feature 'Navbar' do
       expect(current_path).to eq('/requests')
       expect(page).to have_content('Requests')
     end
-
-    scenario 'Spaces' do
-
-    end
-
-  end
 
   feature 'Buttons visibility' do
 
@@ -119,5 +113,7 @@ feature 'Navbar' do
     end
 
   end
+
+end
 
 end
