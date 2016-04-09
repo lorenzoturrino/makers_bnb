@@ -13,7 +13,7 @@ feature 'Navbar' do
       visit '/session/new'
       click_button('Register')
       expect(current_path).to eq('/user/new')
-      expect(page).to have_content('Register')
+      expect(page).to have_content('Sign up')
     end
 
     scenario 'Sign out' do
