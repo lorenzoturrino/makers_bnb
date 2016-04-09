@@ -43,8 +43,8 @@ feature 'Individual request page' do
       end
     end
 
-    # scenario 'should be able to confirm or decline a reservation request' do
-    #
-    # end
+    scenario 'should be able to confirm or decline a reservation request' do
+
+    end
   end
 end

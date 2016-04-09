@@ -3,6 +3,16 @@
 <div id="request-info">
   <p>From: <%= User.get(@booking.guest_id).email %></p><br>
   <p>Dates: <%= @booking.booking_start.strftime("%d/%m/%Y") %> to <%= @booking.booking_end.strftime("%d/%m/%Y") %></p><br>
+  <% unless (@booking.status == 'confirmed') || (@booking.status == 'declined') %>
+    <form class="inline" action="/requests" method="post">
+      <input type="hidden" name="host_request_id" value="<%= @booking.id %>">
+      <button class="btn" type="submit" name="confirmed" value="true">Confirm Request from <%= User.get(@booking.guest_id).email %></button>
+    </form><br>
+    <form class="inline" action="/requests" method="post">
+      <input type="hidden" name="host_request_id" value="<%= @booking.id %>">
+      <button class="btn" type="submit" name="declined" value="false">Decline Request from <%= User.get(@booking.guest_id).email %></button>
+    </form><br>
+  <% end %>
 </div>
 
 <div class="other-requests">
@@ -13,7 +23,6 @@
         <% if booking.booking_start && booking.id != @booking.id %>
           <ul class="request pull-left">
             <li>
-              <p><%= booking.id %></p><br>
               <p><%= Space.get(booking.space_id).name %></p><br>
               <p><%= booking.status.capitalize%></p><br>
               <p>Dates: <%= booking.booking_start.strftime("%d/%m/%Y") %> to <%= booking.booking_end.strftime("%d/%m/%Y") %></p><br>

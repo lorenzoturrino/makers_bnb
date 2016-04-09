@@ -44,17 +44,17 @@
               </li>
                 <a class="detailed-view" href="/bookings/<%= host_request.id %>"><i class="glyphicon glyphicon-chevron-right"></i></a>
                 <li>
-                <% unless (host_request.status == 'confirmed') || (host_request.status == 'declined') %>
-                  <form class="inline" action="/requests" method="post">
-                    <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
-                    <button class="btn" type="submit" name="confirmed" value="true">Confirm</button>
-                  </form>
-                  <form class="inline" action="/requests" method="post">
-                    <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
-                    <button class="btn" type="submit" name="declined" value="false">Decline</button>
-                  </form><br>
+                  <% unless (host_request.status == 'confirmed') || (host_request.status == 'declined') %>
+                    <form class="inline" action="/requests" method="post">
+                      <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
+                      <button class="btn" type="submit" name="confirmed" value="true">Confirm</button>
+                    </form>
+                    <form class="inline" action="/requests" method="post">
+                      <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
+                      <button class="btn" type="submit" name="declined" value="false">Decline</button>
+                    </form><br>
+                  <% end %>
                 </li>
-              <% end %>
             </ul>
         <% end %>
       <% end %>
