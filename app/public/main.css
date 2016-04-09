@@ -16,14 +16,21 @@ body {
 /* TEXT STYLING */
 strong {
   font-weight: 600;
-
 }
+
+p {
+  font-size: 1.5em;
+  line-height: 150%;
+  display: inline-block;
+}
+
 /* HEADERS */
 
 h1, h2, h3, h4, h5, h6, strong, em {
   font-family: 'Montserrat', sans-serif;
   margin: 15px 0;
   color: rgb(75, 75, 75);
+  text-align: center;
 }
 
 
@@ -101,8 +108,7 @@ h2 {
   background-color: rgb(217, 83, 79);
 }
 
-<<<<<<< HEAD
-/* FORMS */
+/*------------FORMS------------*/
 
 .form {
   font-family: 'Montserrat', sans-serif;
@@ -141,8 +147,21 @@ h2 {
 
 .btn:hover {
   cursor: pointer;
+  background-color: rgb(131, 160, 216);
 }
 
+/* REGISTRATION */
+#registration, #login {
+  text-align: center;
+  background-color: #fff;
+  padding: 30px 50px;
+  width: 50%;
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+}
 
 /*-------------- CONTENT --------------*/
 /* REQUESTS */
@@ -158,8 +177,8 @@ h2 {
 }
 
 .boxitem {
-  margin: 20px;
-  width: 30%;
+  margin-top: 10px;
+  width: 50%;
   padding: 25px;
 }
 
@@ -167,7 +186,18 @@ h2 {
   padding: 20px;
   margin: 0 0 10px 0;
   background-color: rgb(255, 255, 255);
-  border-radius: .3em;}
+  border-radius: .3em;
+}
+
+.request li {
+  font-size: 1.5em;
+  line-height: 150%;
+  display: inline-block;
+}
+
+
+
+/*---------- CALENDAR ------------*/
 
 #reportrange {
   background-color: #ffffff;
@@ -175,4 +205,24 @@ h2 {
   cursor: pointer;
   border: 1px solid #ccc;
   display: inline-block;
+}
+
+/* SPACES INDEX */
+
+.intro {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#space-container {
+  background-color: rgb(218, 229, 251);
+  padding: 30px;
+  margin-top: 20px;
+  box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.41)
+}
+
+#space-listing {
+  background-color: #fff;
+  box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.41);
+  padding: 30px;
 }
