@@ -37,12 +37,6 @@ feature 'Navbar' do
       expect(page).to have_content('Requests')
     end
 
-    scenario 'Spaces' do
-
-    end
-
-  end
-
   feature 'Buttons visibility' do
 
     scenario 'Register page' do
