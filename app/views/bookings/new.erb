@@ -1,15 +1,19 @@
-<h1>Please select a date for your booking.</h1>
+<% if session[:user_id] %>
+  <h1>Please select a date for your booking.</h1>
 
-<form action="/bookings" method="post">
-  <input id="booking_start" type="hidden" name="booking_start">
-  <input id="booking_end" type="hidden" name="booking_end">
-  <div id="reportrange">
-      <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
-      <span></span> <b class="caret"></b>
-  </div>
-  <button class="btn" type="submit">Submit Request</button>
-</form>
+  <form action="/bookings" method="post">
+    <input id="booking_start" type="hidden" name="booking_start">
+    <input id="booking_end" type="hidden" name="booking_end">
+    <div id="reportrange">
+        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+        <span></span> <b class="caret"></b>
+    </div>
+    <button class="btn" type="submit">Submit Request</button>
+  </form>
 
-<script>
-  var booked_dates = <%= @booked_dates = @booked_dates.flatten.map { |date| date.strftime("%Y-%m-%d") } %>
-</script>
+  <script>
+    var booked_dates = <%= @booked_dates = @booked_dates.flatten.map { |date| date.strftime("%Y-%m-%d") } %>
+  </script>
+<% else %>
+  <% redirect '/' %>
+<% end %>
