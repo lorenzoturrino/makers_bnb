@@ -40,4 +40,9 @@ class Bnb < Sinatra::Base
     flash.keep[:notice] = "Request sent"
     redirect '/'
   end
+
+  get '/bookings/:id' do
+    @booking = Booking.get(params[:id])
+    erb :'bookings/detailed'
+  end
 end
