@@ -196,7 +196,7 @@ label {
   display: inline-block;
 }
 
-.glyphicon-chevron-right {
+a .glyphicon-chevron-right {
   font-size: 45px;
   line-height: 120px;
   float: right;
