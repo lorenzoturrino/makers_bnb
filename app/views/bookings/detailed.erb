@@ -1,0 +1,43 @@
+<% if session[:user_id] == @booking.host_id || @booking.guest_id %>
+  <h1>Request for '<%= Space.get(@booking.space_id).name %>'</h1>
+
+  <div id="request-info">
+    <p>From: <%= User.get(@booking.guest_id).email %></p><br>
+    <p>Dates: <%= @booking.booking_start.strftime("%d/%m/%Y") %> to <%= @booking.booking_end.strftime("%d/%m/%Y") %></p><br>
+    <% if session[:user_id] == @booking.host_id %>
+
+      <% unless (@booking.status == 'confirmed') || (@booking.status == 'declined') %>
+        <form class="inline" action="/requests" method="post">
+          <input type="hidden" name="host_request_id" value="<%= @booking.id %>">
+          <button class="btn" type="submit" name="confirmed" value="true">Confirm Request from <%= User.get(@booking.guest_id).email %></button>
+        </form><br>
+        <form class="inline" action="/requests" method="post">
+          <input type="hidden" name="host_request_id" value="<%= @booking.id %>">
+          <button class="btn" type="submit" name="declined" value="false">Decline Request from <%= User.get(@booking.guest_id).email %></button>
+        </form><br>
+      <% end %>
+    </div>
+
+    <div class="other-requests">
+      <h2>Other Requests for this Space</h2>
+      <div class="flexbox">
+        <section class="box-item">
+          <% Space.get(@booking.space_id).bookings.each do |booking| %>
+            <% if booking.booking_start && booking.id != @booking.id %>
+              <ul class="request pull-left">
+                <li>
+                  <p><%= Space.get(booking.space_id).name %></p><br>
+                  <p><%= booking.status.capitalize%></p><br>
+                  <p>Dates: <%= booking.booking_start.strftime("%d/%m/%Y") %> to <%= booking.booking_end.strftime("%d/%m/%Y") %></p><br>
+                </li>
+                <a class="detailed-view" href="/bookings/<%= booking.id %>"><i class="glyphicon glyphicon-chevron-right"></i></a>
+              </ul>
+            <% end %>
+          <% end %>
+        </section>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <% redirect '/' %>
+<% end %>

@@ -169,7 +169,8 @@ label {
 .flexbox {
   display: flex;
   justify-content: center;
-
+  background-color: rgb(218, 229, 251);
+  box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.41)
 }
 
 .inline {
@@ -177,25 +178,43 @@ label {
 }
 
 .boxitem {
-  margin-top: 10px;
   width: 50%;
   padding: 25px;
 }
 
 .request {
   padding: 20px;
-  margin: 0 0 10px 0;
+  margin: 10px 0 10px 0;
   background-color: rgb(255, 255, 255);
   border-radius: .3em;
+  box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.41);
+  display: block;
 }
 
 .request li {
-  font-size: 1.5em;
   line-height: 150%;
   display: inline-block;
 }
 
+a .glyphicon-chevron-right {
+  font-size: 45px;
+  line-height: 120px;
+  float: right;
+}
 
+#request-info {
+  text-align: center;
+  margin: 20px;
+}
+
+.other-requests .request {
+  display: inline-block;
+  margin: 20px;
+}
+
+.other-requests .request li {
+  width: 50%;
+}
 
 /*---------- CALENDAR ------------*/
 

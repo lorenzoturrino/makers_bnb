@@ -9,7 +9,7 @@ class Bnb < Sinatra::Base
     else
       @filter_range = nil
     end
-    
+
     @spaces = Space.all
     @bookings = Booking.all
     erb :'/spaces/index'
@@ -20,6 +20,7 @@ class Bnb < Sinatra::Base
   end
 
   post '/spaces/new' do
+    redirect '/' unless session[:user_id]
     start_date = Date.parse(params[:start_availability])
     end_date = Date.parse(params[:end_availability])
     space = Space.new(name: params[:space_name],

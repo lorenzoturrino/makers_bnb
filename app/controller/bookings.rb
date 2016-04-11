@@ -14,7 +14,7 @@ class Bnb < Sinatra::Base
   end
 
   post '/bookings/new' do
-
+    redirect '/' unless session[:user_id]
     host_id = Space.get(params[:space_id]).user.id
     guest_id = User.get(session[:user_id]).id
     booking = Booking.create(space_id: params[:space_id],
@@ -29,6 +29,7 @@ class Bnb < Sinatra::Base
   end
 
   post '/bookings' do
+    redirect '/' unless session[:user_id]
     booking = Booking.get(session[:booking_id])
     booking_price_per_night = Space.get(booking.space_id).price
     start_date = Date.parse(params[:booking_start])
@@ -39,5 +40,11 @@ class Bnb < Sinatra::Base
 
     flash.keep[:notice] = "Request sent"
     redirect '/'
+  end
+
+  get '/bookings/:id' do
+    redirect '/' unless session[:user_id]
+    @booking = Booking.get(params[:id])
+    erb :'bookings/detailed'
   end
 end

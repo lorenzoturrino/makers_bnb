@@ -13,11 +13,12 @@
             <% if guest_request.booking_start && guest_request.booking_end %>
             <ul class="request">
               <li>
-                <strong>Property</strong> <%= Space.get(guest_request.space_id).name %><br>
-                <strong>Host</strong> <%= User.get(guest_request.host_id).name %><br>
-                <strong>Status</strong> <%= guest_request.status.capitalize %><br>
-                <strong>From</strong>  <%= guest_request.booking_start %> <strong>to</strong> <%= guest_request.booking_end %><br>
+                <p><strong>Property</strong> <%= Space.get(guest_request.space_id).name %></p><br>
+                <p><strong>Host</strong> <%= User.get(guest_request.host_id).name %></p><br>
+                <p><strong>Status</strong> <%= guest_request.status.capitalize %></p><br>
+                <p><strong>From</strong>  <%= guest_request.booking_start %> <strong>to</strong> <%= guest_request.booking_end %><p><br>
               </li>
+              <a class="detailed-view" href="/bookings/<%= guest_request.id %>"><i class="glyphicon glyphicon-chevron-right"></i></a>
             </ul>
             <% end %>
 
@@ -36,22 +37,24 @@
           <% if host_request.booking_start && host_request.booking_end %>
             <ul class="request">
               <li>
-                <strong>Property</strong> <%= Space.get(host_request.space_id).name %><br>
-                <strong>Guest</strong> <%= User.get(host_request.guest_id).name %><br>
-                <strong>Status</strong> <%= host_request.status.capitalize %><br>
-                <strong>From</strong> <%= host_request.booking_start %> <strong>to</strong> <%= host_request.booking_end %><br>
-              <% unless (host_request.status == 'confirmed') || (host_request.status == 'declined') %>
-                <form class="inline" action="/requests" method="post">
-                  <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
-                  <button class="btn" type="submit" name="confirmed" value="true">Confirm</button>
-                </form>
-                <form class="inline" action="/requests" method="post">
-                  <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
-                  <button class="btn" type="submit" name="declined" value="false">Decline</button>
-                </form><br>
-                </li>
+                <p><strong>Property</strong> <%= Space.get(host_request.space_id).name %></p><br>
+                <p><strong>Guest</strong> <%= User.get(host_request.guest_id).name %></p><br>
+                <p><strong>Status</strong> <%= host_request.status.capitalize %></p><br>
+                <p><strong>From</strong> <%= host_request.booking_start %> <strong>to</strong> <%= host_request.booking_end %></p><br>
               </li>
-              <% end %>
+                <a class="detailed-view" href="/bookings/<%= host_request.id %>"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                <li>
+                  <% unless (host_request.status == 'confirmed') || (host_request.status == 'declined') %>
+                    <form class="inline" action="/requests" method="post">
+                      <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
+                      <button class="btn" type="submit" name="confirmed" value="true">Confirm</button>
+                    </form>
+                    <form class="inline" action="/requests" method="post">
+                      <input type="hidden" name="host_request_id" value="<%= host_request.id %>">
+                      <button class="btn" type="submit" name="declined" value="false">Decline</button>
+                    </form><br>
+                  <% end %>
+                </li>
             </ul>
         <% end %>
       <% end %>
