@@ -29,12 +29,12 @@
   I want to create a new space
   ```
   ```
-  As a person 
+  As a person
   So I can use Makersbnb
   I want to sign up
   ```
   ```
-  As a developer, 
+  As a developer,
   So that the hosts are display with the right space,
   I want my spaces to have a one to many relation with users.
   ```
@@ -79,17 +79,4 @@ $ rake db:migrate
 ```
 ### Screenshots & Link
 
- Liver Version: https://makerbnbfeb.herokuapp.com/
-
-
-
-
-
-
-
-
-
-
-
-
-
+ Live Version: http://homereservationapp.herokuapp.com/
